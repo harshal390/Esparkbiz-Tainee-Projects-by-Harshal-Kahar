@@ -26,6 +26,12 @@ const projectData = [
         title: "Static Website 1",
         url: `http://localhost:${port}/static_websites/1`
     },
+    {
+        id: 4,
+        date: "12/2/2024",
+        title: "Static Website 2",
+        url: `http://localhost:${port}/static_websites/2`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>
