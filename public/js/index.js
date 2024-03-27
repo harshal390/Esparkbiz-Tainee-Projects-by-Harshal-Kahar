@@ -8,6 +8,12 @@ const projectData = [
         title: "Dynamic Table",
         url: `http://localhost:${port}/dynamic_table`
     },
+    {
+        id: 2,
+        date: "2/2/2024",
+        title: "Kuku Cube",
+        url: `http://localhost:${port}/kuku_cube`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>

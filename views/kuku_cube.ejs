@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuku Cube</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/kuku_cube.css">
+</head>
+
+<body>
+    <div class="sticky top-0 z-20">
+        <span id="game_header" class="flex w-full justify-evenly h-10 bg-yellow-300 items-center">
+            <span>Score:<span id="score">0</span></span>
+            <span>Time :<span id="counter">45</span></span>
+            <span id="pause" class="px-3 py-1 bg-green-500 cursor-pointer rounded-lg">Pause</span>
+        </span>
+    </div>
+    <div class="border flex w-[100dvw] relative min-h-[100dvh] items-center justify-center bg-red-400" id="grid_parent">
+        <div class="grid grid-cols-2 gap-1 h-[50rem] w-[50rem] border p-1 bg-white rounded-lg" id="grid_box">
+            <div class="w-auto h-auto border rounded-xl bg-blue-600 cursor-pointer un_selected_box"
+                onclick="wrong_that_box()"></div>
+            <div class="w-auto h-auto border rounded-xl bg-blue-600 cursor-pointer un_selected_box"
+                onclick="wrong_that_box()"></div>
+            <div class="w-auto h-auto border rounded-xl bg-blue-600 cursor-pointer un_selected_box"
+                onclick="wrong_that_box()"></div>
+            <div class="w-auto h-auto border rounded-xl bg-blue-600/70 cursor-pointer" id="selected_box"
+                onclick="click_that_box()"></div>
+        </div>
+    </div>
+   
+</body>
+<script src="/js/kuku_cube.js"></script>
+</html>
