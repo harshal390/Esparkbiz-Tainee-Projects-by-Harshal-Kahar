@@ -14,6 +14,12 @@ const projectData = [
         title: "Kuku Cube",
         url: `http://localhost:${port}/kuku_cube`
     },
+    {
+        id: 3,
+        date: "5/2/2024",
+        title: "Tic Tac Toe",
+        url: `http://localhost:${port}/tic_tac_toe`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>
