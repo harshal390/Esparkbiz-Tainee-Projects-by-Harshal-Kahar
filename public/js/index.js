@@ -27,10 +27,16 @@ const projectData = [
         url: `http://localhost:${port}/static_websites/1`
     },
     {
-        id: 4,
+        id: 5,
         date: "12/2/2024",
         title: "Static Website 2",
         url: `http://localhost:${port}/static_websites/2`
+    },
+    {
+        id: 6,
+        date: "14/2/2024",
+        title: "Static Website 3",
+        url: `http://localhost:${port}/static_websites/3`
     },
 ]
 

@@ -1,0 +1,64 @@
+@keyframes slideRight {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+    filter: blur(0.8);
+  }
+  10% {
+    rotate: 2deg;
+    opacity: 0.5;
+    filter: blur(1.6);
+  }
+  50% {
+    rotate: 6deg;
+    opacity: 0.8;
+    filter: blur(2);
+  }
+  30% {
+    rotate: -4deg;
+    opacity: 1;
+    filter: blur(0.8);
+  }
+  100% {
+    rotate: 0deg;
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    filter: blur(0.8);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  10% {
+    filter: blur(1.6);
+    rotate: 2deg;
+    opacity: 0.5;
+  }
+  50% {
+    filter: blur(2);
+    rotate: 6deg;
+    opacity: 0.8;
+  }
+  30% {
+    filter: blur(0.8);
+    rotate: -4deg;
+    opacity: 1;
+  }
+  100% {
+    rotate: 0deg;
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: translateX(1400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

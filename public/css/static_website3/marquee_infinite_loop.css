@@ -1,0 +1,5 @@
+@keyframes marquee_infinite_loop {
+    100% { 
+      transform: translateX(-1170px);  
+    }
+  }
