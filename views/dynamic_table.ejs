@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Table & remove Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <noscript>Your browser does not support JavaScript!</noscript>
+    <link rel="stylesheet" href="/css/dynamic_table.css">
+   
+</head>
+
+<body>
+    <div class="border m-10 flex w-[95dvw] relative min-h-[90dvh]">
+        <table class="table-auto border h-fit overflow-scroll" id="table">
+            
+            <tbody id="table_body" class="overflow-scroll">
+                <tr>
+                    <td class="border w-[10rem] h-[10rem]"></td><td class="border w-[10rem] h-[10rem]"></td>
+                </tr>
+                <tr>
+                    <td class="border w-[10rem] h-[10rem]"></td><td class="border w-[10rem] h-[10rem]"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-4xl flex gap-3 mr-5 mt-5 absolute right-5 top-5">
+            <span
+                class="rounded-full bg-green-500  p-5  h-20 w-20 flex justify-center items-center cursor-pointer z-10" id="add_col">+</span>
+            <span
+                class="rounded-full bg-green-500  p-5 h-20 w-20 flex justify-center items-center cursor-pointer z-10" id="sub_col">-</span>
+        </div>
+        <div class="text-4xl flex flex-col gap-3 mr-5 mt-5 absolute left-5 bottom-5">
+            <span
+                class="rounded-full bg-green-500  p-5  h-20 w-20 flex justify-center items-center cursor-pointer z-10" id="add_row">+</span>
+            <span
+                class="rounded-full bg-green-500  p-5 h-20 w-20 flex justify-center items-center cursor-pointer z-10" id="sub_row">-</span>
+        </div>
+       
+    </div>
+
+
+</body>
+<script src="/js/dynamic_table.js"></script>
+
+</html>

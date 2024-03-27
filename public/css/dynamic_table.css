@@ -1,0 +1,28 @@
+tbody{
+    border:2px solid yellow;
+}
+
+tbody tr:nth-child(odd){
+    border:2px solid oranged;
+}
+tbody tr:nth-child(even){
+    border: 2px solid lightgreen;
+}
+
+tbody tr:nth-child(odd) td:nth-child(odd){
+    background-color: whitesmoke;
+    color: gray;
+}
+tbody tr:nth-child(odd) td:nth-child(even){
+    background-color: black;
+    color: gray;
+}
+
+tbody tr:nth-child(even) td:nth-child(odd){
+    background-color: black;
+    color: gray;
+}
+tbody tr:nth-child(even) td:nth-child(even){
+    background-color: whitesmoke;
+    color: gray;
+}
