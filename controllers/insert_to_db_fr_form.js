@@ -18,13 +18,13 @@ const pushUser = async ({ ...user }) => {
     // console.log(hobbies);
     let sql = `INSERT INTO insert_to_db_from_form (unique_id,first_name, last_name, age,email,phone_number,address,hobbies,gender, reg_date) VALUES ("${unique_id}", "${first_name}", "${last_name}","${age}","${email}","${phone_number}","${address}","${hobbies}","${gender}", NOW());`
     console.log(sql);
-    try {
-        await db.query(sql);
-        console.log("user pushed...")
-        return user_data;
-    } catch (error) {
-        return error;
+    const [results, fields] = await db.query(sql);
+    if (results[0].error) {
+        throw new Error(rows[0].error.message);
     }
+    console.log("user pushed...")
+    return user_data;
+
 }
 
 const findUser = (user_id, users) => users.filter(ele => +ele.unique_id === user_id)[0];
