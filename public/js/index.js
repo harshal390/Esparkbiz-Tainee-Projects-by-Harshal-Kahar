@@ -50,6 +50,12 @@ const projectData = [
         title: "Insert into database from html form",
         url: `http://localhost:${port}/insert_to_db_fr_form/basicdetails`
     },
+    {
+        id: 9,
+        date: "26/2/2024",
+        title: "Pagination",
+        url: `http://localhost:${port}/pagination`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>

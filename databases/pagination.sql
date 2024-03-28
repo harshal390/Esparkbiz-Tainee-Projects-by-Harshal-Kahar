@@ -1,0 +1,1 @@
+CREATE TABLE pagination AS SELECT * FROM express.studentMaster;
