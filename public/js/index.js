@@ -44,6 +44,12 @@ const projectData = [
         title: "Crud operation using fs modules",
         url: `http://localhost:${port}/fs_crud/basicdetails`
     },
+    {
+        id: 8,
+        date: "23/2/2024",
+        title: "Insert into database from html form",
+        url: `http://localhost:${port}/insert_to_db_fr_form/basicdetails`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>

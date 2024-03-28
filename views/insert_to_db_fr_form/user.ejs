@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User page</title>
+    <link rel="stylesheet" href="/css/insert_to_db_fr_form/user.css">
+    <link href="https://api.fontshare.com/v2/css?f[]=author@400,500,600&display=swap" rel="stylesheet">
+</head>
+
+<body class="flex-center">
+    <div class="flex-col card">
+        <span>
+            <span class="bold"> Name : </span>
+            <%= user.first_name+" "+user.last_name %>
+        </span>
+        <span>
+            <span class=" bold"> Age :
+        </span>
+        <%= user.age %>
+            </span>
+
+            <span>
+                <span class="bold"> Email : </span>
+                <%= user.email %>
+            </span>
+            <span>
+                <span class="bold"> PhoneNumber : </span>
+                <%= user.phone_number %>
+            </span>
+            <span>
+                <span class="bold"> Address :</span>
+                <%= user.address %>
+            </span>
+            <span>
+                <span class="bold">Gender :</span>
+                <%= user.gender %>
+            </span>
+            <span>
+                <span class="bold"> Hobbies :</span>
+                <%= hobbies %>
+            </span>
+    </div>
+</body>
+
+</html>

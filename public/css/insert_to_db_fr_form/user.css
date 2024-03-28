@@ -1,0 +1,47 @@
+body {
+  font-family: "Author", sans-serif;
+  font-size: 32px;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.border {
+  border: 1px solid grey;
+}
+
+.p-normal {
+  padding: 10px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.card{
+    background-color: rgb(204, 255, 150);
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    padding: 50px;
+    transition-duration: 300ms;
+}
+
+.card:hover{
+    background-color: rgb(147, 255, 219);
+    
+}
