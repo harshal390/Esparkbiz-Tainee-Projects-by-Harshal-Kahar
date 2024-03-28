@@ -1,0 +1,34 @@
+[
+    {
+        "unique_id": 1711599789247,
+        "first_name": "Hellow rold",
+        "last_name": "last name",
+        "age": "19",
+        "email": "restartmyself21@gmail.com",
+        "phone_number": "9537407968",
+        "address": "kdhs",
+        "hobbies": [
+            "Chess",
+            "Exercise",
+            "Coding",
+            "Designing"
+        ],
+        "gender": "male"
+    },
+    {
+        "unique_id": 1711599803802,
+        "first_name": "good morning",
+        "last_name": "last name",
+        "age": "19",
+        "email": "restartmyself21@gmail.com",
+        "phone_number": "9537407968",
+        "address": "kdhs",
+        "hobbies": [
+            "Chess",
+            "Exercise",
+            "Coding",
+            "Designing"
+        ],
+        "gender": "male"
+    }
+]

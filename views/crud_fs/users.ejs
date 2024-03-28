@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Ussers</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=author@400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/crud_fs/users.css">
+</head>
+
+<body class="flex-center">
+    <table class="border">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th></th>
+        </tr>
+        <% for(let i=0;i < users.length; i++){%>
+            <tr class="border">
+                <td>
+                    <%= users[i].first_name+" "+users[i].last_name %>
+                </td>
+                <td>
+                    <%= users[i].email %>
+                </td>
+                <td>
+                    <%= users[i].phone_number %>
+                </td>
+                <td><a href=" /fs_crud/user/<%=users[i].unique_id %>">Detail</a>
+                </td>
+            </tr>
+
+            <%}%>
+    </table>
+</body>
+
+
+</html>

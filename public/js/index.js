@@ -38,6 +38,12 @@ const projectData = [
         title: "Static Website 3",
         url: `http://localhost:${port}/static_websites/3`
     },
+    {
+        id: 7,
+        date: "22/2/2024",
+        title: "Crud operation using fs modules",
+        url: `http://localhost:${port}/fs_crud/basicdetails`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>
