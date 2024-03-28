@@ -62,6 +62,12 @@ const projectData = [
         title: "Attendence Master (filter with dropdown)",
         url: `http://localhost:${port}/attendence_master`
     },
+    {
+        id: 11,
+        date: "28/2/2024",
+        title: "Exam Master",
+        url: `http://localhost:${port}/exam_master`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>
