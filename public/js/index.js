@@ -80,6 +80,12 @@ const projectData = [
         title: "searching by multiple fields in database",
         url: `http://localhost:${port}/searching_by_multiple_field`
     },
+    {
+        id: 14,
+        date: "5/3/2024",
+        title: "Delimeter search",
+        url: `http://localhost:${port}/delimeter_search`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>

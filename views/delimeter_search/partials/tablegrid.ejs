@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Master</title>
+</head>
+
+<body class="flex-center flex-col">
+    <% if(typeof local_users !=='undefined' ){ %>
+        <table>
+            <tr>
+                <th class="text-center py-2 px-5 border bg-purple-950 text-gray-50">Student ID</th>
+                <th class="text-center py-2 px-5 border bg-purple-950 text-gray-50">Student Name</th>
+                <th class="text-center py-2 px-5 border bg-purple-950 text-gray-50">Student Surname</th>
+                <th class="text-center py-2 px-5 border bg-purple-950 text-gray-50">Student Mobile</th>
+                <th class="text-center py-2 px-5 border bg-purple-950 text-gray-50">Student Location</th>
+                <th class="text-center py-2 px-5 border bg-purple-950 text-gray-50">Student Age</th>
+                <th class="text-center py-2 px-5 border bg-purple-950 text-gray-50">Student Gender</th>
+            </tr>
+            <% for(let i=0;i < local_users.length; i++){%>
+                <tr>
+                    <td class="text-center py-2 px-5 border">
+                        <%= local_users[i].student_id %>
+                    </td>
+                    <td class="text-center py-2 px-5 border">
+                        <%= local_users[i].student_name %>
+                    </td>
+                    <td class="text-center py-2 px-5 border">
+                        <%= local_users[i].student_surname %>
+                    </td>
+                    <td class="text-center py-2 px-5 border">
+                        <%= local_users[i].student_mobile %>
+                    </td>
+                    <td class="text-center py-2 px-5 border">
+                        <%= local_users[i].student_location %>
+                    </td>
+                    <td class="text-center py-2 px-5 border">
+                        <%= local_users[i].student_age %>
+                    </td>
+                    <td class="text-center py-2 px-5 border">
+                        <%= local_users[i].student_gender %>
+                    </td>
+                </tr>
+                <%}%>
+        </table>
+        <% } else { %>
+            <div class="flex items-center justify-center text-4xl text-red-600 italic my-5">Error <span
+                    class="text-lg mx-2">
+                    <%= err %>
+                </span></div>
+            <% } %>
+</body>
+
+
+
+</html>
