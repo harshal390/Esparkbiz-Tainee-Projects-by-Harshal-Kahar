@@ -74,6 +74,12 @@ const projectData = [
         title: "searching by query in database",
         url: `http://localhost:${port}/searching_by_query`
     },
+    {
+        id: 13,
+        date: "4/3/2024",
+        title: "searching by multiple fields in database",
+        url: `http://localhost:${port}/searching_by_multiple_field`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>

@@ -6,5 +6,6 @@ const static_websites = require("./static_websites");
 const pagination = require("./pagination");
 const attendence_master = require("./attendence_master");
 const searching_by_query = require("./searching_by_query/index")
+const searching_by_multiple_field = require("./searching_by_multiple_fields/index");
 
-module.exports = { home, dynamic_table, kuku_cube, tic_tac_toe, static_websites,pagination,attendence_master,searching_by_query};
+module.exports = { home, dynamic_table, kuku_cube, tic_tac_toe, static_websites,pagination,attendence_master,searching_by_query,searching_by_multiple_field};

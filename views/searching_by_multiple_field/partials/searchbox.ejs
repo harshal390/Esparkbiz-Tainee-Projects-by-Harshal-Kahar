@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchBox</title>
+</head>
+
+<body>
+    <div class="flex flex-col gap-5">
+        <div class="flex gap-5 items-center w-[975px]">
+            <form method="POST" action="/searching_by_multiple_field"
+                class="border border-purple-300 rounded-lg overflow-hidden text-xl w-full flex">
+                <input type="text" name="student_id" class="text-start py-2 px-5 rounded-lg outline-none w-full"
+                    placeholder="Search by Student ID" tabindex="1" autofocus="autofocus">
+                <input type="submit"
+                    class="w-[30%] text-center py-2 px-5 bg-purple-500 text-white hover:bg-purple-700 duration-300 mr-0"
+                    value=" 🔍 ">
+            </form>
+            <span class="text-xl border-0 outline-none cursor-pointer hover:rotate-180 duration-300"
+                id="toggle">⬆️</span>
+        </div>
+
+        <form id="toggle_form" method="POST" action="/searching_by_multiple_field"
+            class="rounded-lg overflow-hidden p-5 border gap-5 text-sm hidden w-[975px] tansition duration-300 grid-cols-4">
+          
+                <input name="student_name" type="text" class="text-start py-2 px-5 rounded-lg outline-none border"
+                    placeholder="Search by Student Name" tabindex="2" autofocus="autofocus">
+                <input name="student_surname" type="text" class="text-start py-2 px-5 rounded-lg outline-none border"
+                    placeholder="Search by Student Surname" tabindex="3" autofocus="autofocus">
+                <input name="student_mobile" type="text" class="text-start py-2 px-5 rounded-lg outline-none border"
+                    placeholder="Search by Student Mobile No." tabindex="4" autofocus="autofocus">
+                <input name="student_location" type="text" class="text-start py-2 px-5 rounded-lg outline-none border"
+                    placeholder="Search by Student Location" tabindex="5" autofocus="autofocus">
+                <input name="student_age" type="text" class="text-start py-2 px-5 rounded-lg outline-none border"
+                    placeholder="Search by Student Age" tabindex="6" autofocus="autofocus">
+                <input name="student_gender" type="text" class="text-start py-2 px-5 rounded-lg outline-none border"
+                    placeholder="Search by Student Gender" tabindex="7" autofocus="autofocus">
+           
+                    <select tabindex="8" name="operator" id="operator" class="rounded-lg text-center py-2 px-5 bg-purple-500 text-white hover:bg-purple-700 duration-300 appearance-none">
+                        <option value="or" tabindex="8">OR</option>
+                        <option value="and" tabindex="9">AND</option>
+                      </select>
+            <input type="submit"
+                class="rounded-lg text-center py-2 px-5 bg-purple-500 text-white hover:bg-purple-700 duration-300"
+                value=" 🔍 ">
+        </form>
+
+    </div>
+
+</body>
+<script>
+
+    let toggle = document.getElementById("toggle");
+    let toggled = false;
+    let toggle_form = document.getElementById("toggle_form");
+
+    const toggleClick = () => {
+        // console.log("toggle clicked");
+        if (!toggled) {
+            toggled = true;
+            toggle.classList.add("rotate-180");
+            toggle_form.classList.remove("hidden");
+            toggle_form.classList.add("grid");
+        } else {
+            toggled = false;
+            toggle.classList.remove("rotate-180");
+            toggle_form.classList.add("hidden");
+            toggle_form.classList.remove("gird");
+        }
+
+    }
+    toggle.addEventListener("click", () => {
+        toggleClick();
+    })
+
+</script>
+
+</html>
