@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="max-w-[1440px] my-10 mx-auto">
+    <div class="text-green-500 text-center text-3xl my-5 hidden" id="success_msg">Data Inserted Successfully...</div>
+    <div class="text-orange-500 text-center text-3xl my-5 hidden" id="success_update_msg">Data Updated Successfully...</div>
+    <form method="post" action="send">
+        <section id="1"
+            class="basic_details border p-10 flex flex-col gap-7 rounded-lg big-shadow w-full min-h-[710px] justify-center">
+            <h2 class="text-2xl font-semibold text-purple-500">Basic Details </h2>
+
+            <div class="flex flex-col gap-5" id="basic_details_form">
+                <div class="grid grid-cols-2 gap-10">
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="first_name">First Name </label>
+                        <input class="border border-gray-300 outline-none p-2 rounded w-[80%]" type="text"
+                            name="first_name" id="first_name" placeholder="First Name" />
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="last_name">Last Name </label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="last_name" id="last_name" placeholder="Last Name" />
+                    </div>
+
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="designation">Designation </label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="designation" id="designation" placeholder="Designation" />
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="address_1">Address 1 </label>
+                        <textarea class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" name="address_1"
+                            id="address_1"></textarea>
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="address_2">Address 2 </label>
+                        <textarea class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" name="address_2"
+                            id="address_2"> </textarea>
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="email">Email </label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="email" id="email" placeholder="Email" />
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="phone_number">Phone Number </label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" type="tel"
+                            name="phone_number" id="phone_number" placeholder="Phone Number" />
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="city">City </label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="city" id="city" placeholder="City" />
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="zipcode">Zip Code </label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" name="zipcode"
+                            id="zipcode" class="zipcode" type="text" value="">
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label class="font-medium" for="date_of_birth">Date of Birth: </label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" type="text"
+                            id="date_of_birth" name="date_of_birth">
+                    </div>
+                    <div class="flex items-center justify-start gap-5">
+                        <label for="state">Choose a State:</label>
+
+                        <select name="state" id="state" class="py-2 px-5 rounded-lg">
+                            <option value="gujarat">Gujarat</option>
+                            <option value="maharashtra">Maharashtra</option>
+                            <option value="rajsthan">Rajsthan</option>
+                            <option value="up">Uttar Pradesh</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-center justify-start gap-5">
+                        <label for="gender">Choose a Gender</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+
+                    <div class="flex items-center justify-start gap-5">
+                        <label for="relationship_status">Choose a Relationship status:</label>
+                        <select name="relationship_status" id="relationship_status" class="py-2 px-5 rounded-lg">
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                        </select>
+                    </div>
+                </div>
+               
+            </div>
+        </section>
+
+        <section id="2"
+            class="educationDetails p-10 hidden flex-col gap-7 rounded-lg big-shadow w-full border min-h-[710px] justify-center">
+            <h2 class="text-2xl font-semibold text-purple-500">Education Details </h2>
+            <div class="grid grid-cols-2 gap-5">
+                <div class="flex flex-col gap-5" >
+                    <h5 class="text-2xl font-semibold text-purple-500">SSC Results</h5>
+                    <input name="edu_type[]" type="hidden" value="ssc results">
+                    <div class="flex flex-col gap-5" id="ssc_results_box">
+                        <div>
+                            <label for="ssc_name_of_board">Name of Board</label>
+                            <input id="ssc_name_of_board" type="text" name="name_of_board[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                        <div>
+                            <label for="ssc_passing_year">Passing Year</label>
+                            <input id="ssc_passing_year" type="text" name="passing_year[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                        <div>
+                            <label for="ssc_percentage">Percentage</label>
+                            <input id="ssc_percentage" type="text" name="percentage[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-5" >
+                    <h5 class="text-2xl font-semibold text-purple-500">HSC/DIPLOMA RESULTS</h5>
+                    <input name="edu_type[]" type="hidden" value="hsc/diploma results">
+                    <div class="flex flex-col gap-5" id="hsc_diploma_results_box">
+                        <div>
+                            <label for="hsc_diploma_name_of_board">Name of Board</label>
+                            <input id="hsc_diploma_name_of_board" type="text" name="name_of_board[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                        <div>
+                            <label for="hsc_diploma_passing_year">Passing Year</label>
+                            <input id="hsc_diploma_passing_year" type="text" name="passing_year[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                        <div>
+                            <label for="hsc_diploma_percentage">Percentage</label>
+                            <input id="hsc_diploma_percentage" type="text" name="percentage[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-5" >
+                    <h5 class="text-2xl font-semibold text-purple-500">BACHLORE DEGREE</h5>
+                    <input name="edu_type[]" type="hidden" value="bachlore degree">
+                    <div class="flex flex-col gap-5" id="bachlore_degree_box">
+                        <div>
+                            <label for="bach_name_of_board">Course Name</label>
+                            <input id="bach_name_of_board" type="text" name="name_of_board[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                        
+                        <div>
+                            <label for="bach_passing_year">Passing Year</label>
+                            <input id="bach_passing_year" type="text" name="passing_year[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                        <div>
+                            <label for="bach_percentage">Percentage</label>
+                            <input id="bach_percentage" type="text" name="percentage[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-5" >
+                    <h5 class="text-2xl font-semibold text-purple-500">MASTER DEGREE</h5>
+                    <input name="edu_type[]" type="hidden" value="master degree">
+                    <div class="flex flex-col gap-5" id="master_degree_box">
+                        <div>
+                            <label for="master_name_of_board">Course Name</label>
+                            <input id="master_name_of_board" type="text" name="name_of_board[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                      
+                        <div>
+                            <label for="master_passing_year">Passing Year</label>
+                            <input id="master_passing_year" type="text" name="passing_year[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                        <div>
+                            <label for="master_percentage">Percentage</label>
+                            <input id="master_percentage" type="text" name="percentage[]" 
+                                class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="3"
+            class="work_exp p-10 hidden flex-col gap-7 rounded-lg big-shadow border min-h-[710px] justify-center">
+            <h2 class="text-2xl font-semibold text-purple-500">Work Experience</h2>
+            <div class="flex flex-col gap-5">
+                <div class="flex items-center justify-start gap-5" id="work_exp_box_1">
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="company_name_1">Company name</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="company_name[]" id="company_name_1" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="designation_1">Designation</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="work_designation[]" id="designation_1" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="from_1">From</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="start[]" id="from_1" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="to_1">To</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="end[]" id="to_1" />
+                    </span>
+                </div>
+                <div class="flex items-center justify-start gap-5" id="work_exp_box_2">
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="company_name_2">Company name</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="company_name[]" id="company_name_2" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="designation_2">Designation</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="work_designation[]" id="designation_2" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="from_2">From</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="start[]" id="from_2" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="to_2">To</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="end[]" id="to_2" />
+                    </span>
+                </div>
+                <div class="flex items-center justify-start gap-5" id="work_exp_box_3">
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="company_name_3">Company name</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="company_name[]" id="company_name_3" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="designation_3">Designation</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="work_designation[]" id="designation_3" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="from_3">From</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="start[]" id="from_3" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="to_3">To</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="end[]" id="to_3" />
+                    </span>
+                </div>
+
+            </div>
+        </section>
+        <section id="4" class="hidden rounded-lg big-shadow border min-h-[710px] items-center">
+            <div class="language_known flex flex-col gap-7 rounded-lg big-shadow w-full p-10">
+                <h2 class="text-2xl font-semibold text-purple-500">Language Known</h2>
+                <div class="flex flex-col  gap-5">
+                    <div class="flex items-center gap-5">
+                        <span class="flex gap-5">
+                            <label for="hindi">Hindi</label>
+                            <input type="checkbox" value="hindi"  name="language_name[]" id="hindi">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="hindi_read">Read</label>
+                            <input type="checkbox"   name="is_read[]" id="hindi_read" class="checkbox hindi_checkbox">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="hindi_write">Write</label>
+                            <input type="checkbox"   name="is_write[]" id="hindi_write" class="checkbox hindi_checkbox">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="hindi_speak">Speak</label>
+                            <input type="checkbox"   name="is_speak[]" id="hindi_speak" class="checkbox hindi_checkbox">
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-5">
+                        <span class="flex gap-5">
+                            <label for="english">English</label>
+                            <input type="checkbox" value="english"  name="language_name[]" id="english">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="english_read">Read</label>
+                            <input type="checkbox"   name="is_read[]" id="english_read" class="checkbox english_checkbox">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="english_write">Write</label>
+                            <input type="checkbox"   name="is_write[]" id="english_write" class="checkbox english_checkbox">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="english_speak">Speak</label>
+                            <input type="checkbox"   name="is_speak[]" id="english_speak" class="checkbox english_checkbox">
+                        </span>
+
+                    </div>
+                    <div class="flex items-center gap-5">
+                        <span class="flex gap-5">
+                            <label for="gujarati">Gujarati</label>
+                            <input type="checkbox" value="gujarati"  name="language_name[]" id="gujarati">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="gujarati_read">Read</label>
+                            <input type="checkbox" name="is_read[]" id="gujarati_read" class="checkbox gujarati_checkbox">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="gujarati_write">Write</label>
+                            <input type="checkbox" name="is_write[]" id="gujarati_write" class="checkbox gujarati_checkbox">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="gujarati_speak">Speak</label>
+                            <input type="checkbox" name="is_speak[]" id="gujarati_speak" class="checkbox gujarati_checkbox">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="technology_known flex flex-col gap-7 rounded-lg big-shadow w-full p-10">
+                <h2 class="text-2xl font-semibold text-purple-500">Technology You Known</h2>
+                <div class="flex gap-5">
+                    <span class="flex gap-5">
+                        <label for="php">PHP</label>
+                        <input type="checkbox"  name="technology_name[]" id="php" value="php" checked>
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="php_beginer">Beginer </label>
+                        <input type="radio" id="php_beginer" name="php_level" value="beginer">
+
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="php_mideator">Mideator</label>
+                        <input type="radio" name="php_level" id="php_mideator" value="mideator">
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="php_expert">Expert</label>
+                        <input type="radio" name="php_level" id="php_expert" value="expert">
+                    </span>
+
+                </div>
+                <div class="flex gap-5">
+                    <span class="flex gap-5">
+                        <label for="mysql">MySql</label>
+                        <input type="checkbox" name="technology_name[]" id="mysql" value="mysql" checked>
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="mysql_beginer">Beginer </label>
+                        <input type="radio" id="mysql_beginer" name="mysql_level" value="beginer">
+
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="mysql_mideator">Mideator</label>
+                        <input type="radio" id="mysql_mideator" name="mysql_level" id="mysql_mideator" value="mideator">
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="mysql_expert">Expert</label>
+                        <input type="radio" id="mysql_expert" name="mysql_level" id="mysql_expert" value="expert">
+                    </span>
+                </div>
+                <div class="flex gap-5">
+                    <span class="flex gap-5">
+                        <label for="larave">Larave</label>
+                        <input type="checkbox" name="technology_name[]" id="larave" value="larave" checked>
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="larave_beginer">Beginer </label>
+                        <input type="radio" name="larave_level" id="larave_beginer" value="beginer">
+
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="larave_mideator">Mideator</label>
+                        <input type="radio" name="larave_level" id="larave_mideator" value="mideator">
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="larave_expert">Expert</label>
+                        <input type="radio" name="larave_level" id="larave_expert" value="expert">
+                    </span>
+                </div>
+                <div class="flex gap-5">
+                    <span class="flex gap-5">
+                        <label for="oracle">Oracle</label>
+                        <input type="checkbox" name="technology_name[]" id="oracle" value="oracle" checked> 
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="oracle_beginer">Beginer </label>
+                        <input type="radio" id="oracle_beginer" name="oracle_level" value="beginer">
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="oracle_mideator">Mideator</label>
+                        <input type="radio" id="oracle_mideator" name="oracle_level" value="mideator">
+                    </span>
+                    <span class="flex gap-5">
+                        <label for="oracle_expert">Expert</label>
+                        <input type="radio" id="oracle_expert" name="oracle_level" value="expert">
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section id="5"
+            class="reference_contact hidden my-10 border p-10  flex-col gap-7 rounded-lg big-shadow min-h-[710px] justify-center">
+            <h2 class="text-2xl font-semibold text-purple-500">Reference Contact</h2>
+            <div class="flex flex-col  gap-5" >
+                <div class="grid grid-cols-3 items-center justify-start gap-5" id="reference_box_1">
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="name_1">Name</label>
+                        <input id="r_name_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="r_name[]" id="name_1" placeholder="Name" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="contact_number_1">Contact Number
+                        </label>
+                        <input id="r_contact_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="r_contact[]" id="contact_number_1" placeholder="Contact Number" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="relation_1">Relation</label>
+                        <input id="r_relation_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="r_relation[]" id="relation_1" placeholder="Relation" />
+                    </span>
+                </div>
+                <div class="grid grid-cols-3 items-center justify-start gap-5" id="reference_box_2">
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="name_2">Name</label>
+                        <input id="r_name_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="r_name[]" id="name_2" placeholder="Name" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="contact_number_2">Contact Number
+                        </label>
+                        <input id="r_contact_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="r_contact[]" id="contact_number_2" placeholder="Contact Number" />
+                    </span>
+                    <span class="flex items-center gap-3">
+                        <label class="font-medium" for="relation_2">Relation</label>
+                        <input id="r_relation_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="r_relation[]" id="relation_2" placeholder="Relation" />
+                    </span>
+                </div>
+            </div>
+
+        </section>
+        <section id="6"
+            class="referencecontact hidden my-10 border p-10 flex-col gap-7 rounded-lg big-shadow min-h-[710px] justify-center">
+            <h2 class="text-2xl font-semibold text-purple-500">Preferances</h2>
+            <div class="flex flex-col gap-5" id="preferances">
+                <div class="flex items-center justify-start gap-5">
+                    <label for="location">Choose a Location:</label>
+                    <select name="preference_location" id="location" class="py-2 px-5 rounded-lg">
+                        <option value="ahmedabad">Ahmedabad
+                        </option>
+                        <option value="surat">Surat</option>
+                        <option value="navsari">Navsari</option>
+                        <option value="rajkot">Rajkot</option>
+                    </select>
+                </div>
+                <div class="second flex flex-col gap-5">
+                    <span class="flex items-center gap-5">
+                        <label class="font-medium" for="notice_period">Notice period :</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="notice_period" id="notice_period">
+                    </span>
+                    <span class="flex items-center gap-5">
+                        <label class="font-medium" for="expected_ctc">Expacted CTC :</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="expected_ctc" id="expected_ctc">
+                    </span>
+                    <span class="flex items-center gap-5">
+                        <label class="font-medium" for="current_ctc">Current CTC :</label>
+                        <input class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
+                            name="current_ctc" id="current_ctc">
+                    </span>
+                </div>
+                <div class="flex items-center justify-start gap-5">
+                    <label for="department">Choose a Department:</label>
+
+                    <select name="department" id="department" class="py-2 px-5 rounded-lg">
+                        <option value="development">Development</option>
+                        <option value="designing">Designing</option>
+                        <option value="marketing">Marketing</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full flex justify-between my-5">
+            <button class="w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer opacity-40"
+                type="button" id="prev">Prev</button>
+            <button class="w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
+                type="button" id="next">Next</button>
+            <button class="hidden w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
+                 id="submit" type="button">Submit Form</button>
+        </div>
+    </form>
+
+    
+</body>
+<script src="/js/job_application.js"></script>
+
+</html>

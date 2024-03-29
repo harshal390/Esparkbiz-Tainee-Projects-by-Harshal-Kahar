@@ -86,6 +86,12 @@ const projectData = [
         title: "Delimeter search",
         url: `http://localhost:${port}/delimeter_search`
     },
+    {
+        id: 15,
+        date: "18/3/2024",
+        title: "Job Application CRUD",
+        url: `http://localhost:${port}/job_application`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>
