@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Table Grid
+    </title>
+</head>
+
+<body>
+    <div class="_table w-full flex items-center justify-center">
+        <table class="table-auto inline">
+            <thead class="w-full">
+                <tr class="flex">
+                    <% for(let i=0; i<table_title.length; i++) {%>
+                        <th class="border capitalize text-center py-2 px-5 flex items-center !-w-[145px] gap-5">
+                            <%= table_title[i] %>
+                                <span class="flex flex-col w-fit">
+                                    <span class="cursor-pointer opacity-40" id="<%=`${table_title[i].replaceAll(` `,`_`)}__asc`
+                                        %>">⬆</span>
+                                    <span class="cursor-pointer opacity-40" id="<%=`${table_title[i].replaceAll(` `,`_`)}__desc`
+                                        %>">⬇</span>
+                                </span>
+                        </th>
+                        <% }; %>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i<records.length; i++) {%>
+                    <tr>
+                        <% for(let j=0; j<table_keys.length; j++) {%>
+                            <td class="border text-center py-2 px-5 inline-block min-w-[160.5px]">
+                                <%= records[i][table_keys[j]] %>
+                            </td>
+                            <% }; %>
+
+                    </tr>
+                    <% }; %>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<script>
+    let id = sessionStorage.getItem("sort") ? sessionStorage.getItem("sort") : "<%=`${table_title[0].replaceAll(` `,`_`)}__asc`%>";
+    let selected_order = document.getElementById(id);
+    selected_order.classList.add("opacity-100");
+
+    let title_length = +"<%= table_title.length %>";
+    let table_field = "<%= table_title %>".split(",");
+    // console.log(title_length, typeof title_length);
+    // console.log(table_field, typeof table_field);
+
+    //id's for ordering
+    let asc_ids = [];
+    let desc_ids = [];
+    for (let i = 0; i < title_length; i++) {
+        let asc_filed = `${table_field[i].replaceAll(" ", "_")}__asc`;
+        let desc_field = `${table_field[i].replaceAll(" ", "_")}__desc`;
+        asc_ids.push(asc_filed);
+        desc_ids.push(desc_field);
+    }
+    // console.log(asc_ids, desc_ids);
+
+    asc_ids.forEach((ele) => {
+        let node = document.getElementById(ele);
+        node.addEventListener("click", () => {
+            node.classList.add("opacity-100");
+            sorting(ele);
+            // console.log(ele);
+        })
+    })
+
+    desc_ids.forEach((ele) => {
+        let node = document.getElementById(ele);
+        node.addEventListener("click", () => {
+            node.classList.add("opacity-100");
+            sorting(ele);
+            // console.log(ele);
+        })
+    })
+
+    const sorting = (id) => {
+        window.location.href = `?query=${query}&p=${value}&sort=${id.toLowerCase()}`;
+        sessionStorage.setItem("sort", id);
+    }
+
+</script>
+
+</html>

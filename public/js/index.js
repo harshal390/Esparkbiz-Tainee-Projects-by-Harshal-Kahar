@@ -68,6 +68,12 @@ const projectData = [
         title: "Exam Master",
         url: `http://localhost:${port}/exam_master`
     },
+    {
+        id: 12,
+        date: "29/2/2024",
+        title: "searching by query in database",
+        url: `http://localhost:${port}/searching_by_query`
+    },
 ]
 
 let html_str = `<span class="border p-5 py-2 flex items-center justify-center bg-gray-100">Project Name </span>

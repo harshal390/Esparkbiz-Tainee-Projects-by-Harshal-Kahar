@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <div class="header h-[5rem] flex items-center justify-center">Name : Harshal S. Kahar</div>
+    <form action="/searching_by_query" method="POST" class="flex flex-col items-center gap-5">
+        <div>
+            <label for="table_query" class="bold py-2 px-5 text-center">Enter Query</label>
+            <input class="border outline-none py-2 px-5 text-center" type="text" name="table_query" id="table_query"
+                placeholder="Enter query" />
+        </div>
+        <div class="button-grp flex gap-5">
+            <input type="submit" class="button py-2 px-5 text-center bg-[#00ffff] cursor-pointer rounded-lg">
+            <input type="reset" class="button py-2 px-5 text-center bg-[chartreuse] cursor-pointer rounded-lg">
+        </div>
+    </form>
+
+    <% if(typeof records !=='undefined' && typeof table_keys !=='undefined' && typeof table_title !=='undefined' ){ %>
+        <div class="table_content my-10">
+           
+                <!-- table grid -->
+                <%- include('partials/tablegrid'); %>
+
+                    <!-- pagination -->
+                    <%- include('partials/pagination'); %>
+        </div>
+        <% } else { %>
+            <div class="flex items-center justify-center text-4xl text-red-600 italic my-5">Error <span class="text-lg mx-2">
+                    <%= err %>
+                </span></div>
+            <% } %>
+</body>
+
+<script>
+    let input = document.getElementById("table_query");
+    const changeInput = () => {
+        sessionStorage.clear();
+    }
+    input.addEventListener("change", () => {
+        changeInput();
+    })
+</script>
+
+</html>
