@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="max-w-[1440px] my-10 mx-auto">
+    <div class="text-green-500 text-center text-3xl my-5 hidden" id="success_msg">Data Inserted Successfully...</div>
+    <div class="text-orange-500 text-center text-3xl my-5 hidden" id="success_update_msg">Data Updated Successfully...
+    </div>
+    <form method="post">
+       <section class="user_register border p-10 flex flex-col gap-7 rounded-lg big-shadow  min-h-[350px]  w-1/2 mx-auto">
+        <h2 class="text-2xl font-semibold text-purple-500">User Login 😀</h2>
+        <div action="" class="flex flex-col gap-3">
+            <div class="flex flex-col gap-2 justify-start">
+                <label class="font-medium" for="first_name">User Name :</label>
+                <input class="border border-gray-300 outline-none p-2 rounded" type="text"
+                    name="user_name" id="user_name" placeholder="User Name"/>
+            </div>
+            <div class="flex flex-col gap-2 justify-start">
+                <label class="font-medium" for="first_name">Password :</label>
+                <input class="border border-gray-300 outline-none p-2 rounded" type="text"
+                    name="password" id="password" placeholder="Password"/>
+            </div>
+           
+            <div class="w-full flex justify-end my-5">
+                <button class="w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer" id="login_btn" type="button">Login</button>
+            </div>
+        </div>
+
+       </section>
+    </form>
+
+</body>
+
+</html>
