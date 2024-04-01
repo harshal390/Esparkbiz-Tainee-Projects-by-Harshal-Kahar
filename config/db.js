@@ -1,5 +1,5 @@
 const mysql = require('mysql2');
-const conf = require('../cofig')
+const conf = require('../cofig');
 const pool = mysql.createPool({
     host: 'localhost',
     user: conf.mysql_user,

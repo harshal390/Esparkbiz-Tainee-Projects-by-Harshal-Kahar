@@ -9,3 +9,6 @@ create table registration(
     _time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     primary key (user_id)
 );
+
+alter table registration rename column phone_number to mobile_number;
+alter table registration add column token varchar(255);

@@ -10,5 +10,6 @@ const searching_by_multiple_field = require("./searching_by_multiple_fields/inde
 const delimeter_search = require("./delimeter_search/index");
 const registration = require("./auth/registration");
 const login = require("./auth/login");
+const logout = require("./auth/logout");
 
-module.exports = { home, dynamic_table, kuku_cube, tic_tac_toe, static_websites, pagination, attendence_master, searching_by_query, searching_by_multiple_field, delimeter_search, registration,login };
+module.exports = { home, dynamic_table, kuku_cube, tic_tac_toe, static_websites, pagination, attendence_master, searching_by_query, searching_by_multiple_field, delimeter_search, registration, login, logout };

@@ -9,6 +9,10 @@ const email = node_by_id("email");
 const gender_radious = nodes_by_query("input[name=gender]")
 const password = node_by_id("password");
 const confirm_password = node_by_id("confirm_password");
+const success_msg = node_by_id("success_msg");
+const fail_msg = node_by_id("fail_msg");
+const valid_msg = node_by_id("valid_msg");
+const login_btn = node_by_id("login_btn")
 
 const radio_vaildation = (selected_radio) => {
     let gender_obj = {};
@@ -85,6 +89,8 @@ const Password_validation = (id) => {
     };
 };
 
+const matchPassword = (x, y) => x === y;
+
 const registration_validation = () => {
     const fullNameValid = empty_string_validation(full_name);
     const userNameValid = empty_string_validation(user_name);
@@ -93,10 +99,11 @@ const registration_validation = () => {
     const genderValid = radio_vaildation(gender_radious);
     const passwordValid = Password_validation(password);
     const confirmPasswordValid = Password_validation(confirm_password);
+    const matchPasswordValid = matchPassword(password.value, confirm_password.value);
 
-    console.log(fullNameValid, userNameValid, mobileValid, emailValid, genderValid, passwordValid, confirmPasswordValid);
+    console.log(fullNameValid, userNameValid, mobileValid, emailValid, genderValid, passwordValid, confirmPasswordValid, matchPasswordValid);
 
-    return fullNameValid && userNameValid && mobileValid && emailValid && genderValid && passwordValid && confirmPasswordValid;
+    return fullNameValid && userNameValid && mobileValid && emailValid && genderValid && passwordValid && confirmPasswordValid && matchPasswordValid;
 }
 
 const postFormDataAsJson = async (url, formData) => {
@@ -128,10 +135,27 @@ const RegisterUser = async () => {
         let response = await postFormDataAsJson("http://localhost:3000/registraton", form_data)
         response = await response.json();
         console.log(response);
+        if (response.status) {
+            success_msg.classList.remove("hidden");
+            setTimeout(() => {
+                success_msg.innerText = response.msg;
+                success_msg.classList.add("hidden");
+                window.location.pathname = `/login`;
+            }, 1200);
+        } else {
+            fail_msg.classList.remove("hidden");
+            setTimeout(() => {
+                fail_msg.innerText = response.msg;
+                fail_msg.classList.add("hidden");
+            }, 1200);
+        }
     } else {
-        console.log("Not validation yet");
+        valid_msg.classList.remove("hidden");
+        setTimeout(() => {
+            valid_msg.classList.add("hidden");
+        }, 3000);
     }
-
 }
 
 register_btn.addEventListener("click", () => { RegisterUser() })
+login_btn.addEventListener("click", () => window.location.pathname = "/login");

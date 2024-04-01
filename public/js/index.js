@@ -1,5 +1,6 @@
 const port = 3000;
 const project_root = document.getElementById("project_root");
+const logout = document.getElementById("logout");
 
 const projectData = [
     {
@@ -106,3 +107,11 @@ projectData.map(ele => {
 })
 
 project_root.innerHTML = html_str;
+
+const logoutUser = async () => {
+    await fetch("http://localhost:3000/logout");
+    window.location.pathname=`/login`;
+}
+
+
+logout.addEventListener("click", () => { logoutUser() })
