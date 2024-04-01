@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
-
+const conf = require('../cofig')
 const pool = mysql.createPool({
     host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'main_database',
+    user: conf.mysql_user,
+    password: conf.mysql_password,
+    database: conf.mysql_database,
     waitForConnections: true,
     connectionLimit: 10, // The limit based on needs
     queueLimit: 0
@@ -21,6 +21,7 @@ pool.getConnection((err, connection) => {
     }
 
     console.log('Connection acquired');
+    // console.log(conf);
 
     // Releasing the connection
     connection.release();
