@@ -12,4 +12,19 @@ const insert_data = async (form_data) => {
     return results[0].insertId;
 }
 
-module.exports = { insert_data }
+const getRegistration = async (req, res) => {
+    res.render('auth/register.ejs');
+}
+
+const postRegistration = async (req, res) => {
+    const form_data = req.body;
+    // console.log(form_data);
+    try {
+        const user_id = await insert_data({ ...form_data, });
+        res.send({ status: true, msg: "User Register Success..!" });
+    } catch (error) {
+        res.send({ status: false, msg: String(error) });
+    }
+}
+
+module.exports = { getRegistration, postRegistration }

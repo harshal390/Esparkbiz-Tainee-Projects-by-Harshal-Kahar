@@ -30,5 +30,37 @@
             "Designing"
         ],
         "gender": "male"
+    },
+    {
+        "unique_id": 1712139802912,
+        "first_name": "Narazgi",
+        "last_name": "Pyari lage",
+        "age": "18",
+        "email": "harshalskahar389@gmail.com",
+        "phone_number": "good moring",
+        "address": "okayyf",
+        "hobbies": [
+            "Chess",
+            "Exercise",
+            "Coding",
+            "Designing"
+        ],
+        "gender": "female"
+    },
+    {
+        "unique_id": 1712150011870,
+        "first_name": "hiiiiiii",
+        "last_name": "i love you",
+        "age": "35",
+        "email": "harshalskahar389@gmail.com",
+        "phone_number": "9537407968",
+        "address": "L.D. College of Engineering,Ahmedabad",
+        "hobbies": [
+            "Chess",
+            "Exercise",
+            "Coding",
+            "Designing"
+        ],
+        "gender": "male"
     }
 ]

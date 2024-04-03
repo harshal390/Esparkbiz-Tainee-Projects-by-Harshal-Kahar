@@ -1,15 +1,63 @@
-const home = require("./home");
-const dynamic_table = require("./dynamic_table");
-const kuku_cube = require("./kuku_cube");
-const tic_tac_toe = require("./tic_tac_toe");
-const static_websites = require("./static_websites");
-const pagination = require("./pagination");
-const attendence_master = require("./attendence_master");
-const searching_by_query = require("./searching_by_query/index")
-const searching_by_multiple_field = require("./searching_by_multiple_fields/index");
-const delimeter_search = require("./delimeter_search/index");
-const registration = require("./auth/registration");
-const login = require("./auth/login");
-const logout = require("./auth/logout");
+const express = require('express');
+const route = express.Router();
+const { auth } = require("../middleware/auth");
+const { home, dynamic_table, kuku_cube, tic_tac_toe, static_website_1, static_website_2, static_website_3, getLogin, postLogin, logOut, getRegistration, postRegistration, getBasicDetails, postBasicDetails, getUser, getUsers, insertIntoBasicDetails, insertUserIntoBasicDetails, getUsersFromBasicDetails, getUserFromBasicDetails, paginationGrid, attendenceGrid, examMasterGrid, getStudentDetails, postSearchByQuery, getGridOfSearchByQuery, searchingByMultipleFieldsGrid, postSearchingByMultipleFields, delimeterSearchGrid, delimeterSearch, jobApplication, postJobApplication, jobApplicationUpdationUi, updateJobApplication, fetchJobApplicationData } = require("../controllers")
 
-module.exports = { home, dynamic_table, kuku_cube, tic_tac_toe, static_websites, pagination, attendence_master, searching_by_query, searching_by_multiple_field, delimeter_search, registration, login, logout };
+route.get('/', auth, home);
+route.get('/dynamic_table', auth, dynamic_table);
+route.get('/kuku_cube', auth, kuku_cube);
+route.get('/tic_tac_toe', auth, tic_tac_toe);
+route.get('/static_websites/1', auth, static_website_1);
+route.get('/static_websites/2', auth, static_website_2);
+route.get('/static_websites/3', auth, static_website_3);
+
+//crud in file system 
+route.get('/fs_crud/basicdetails', auth, getBasicDetails);
+route.post('/fs_crud/basicdetails', auth, postBasicDetails);
+route.get('/fs_crud/user/:user_id', getUser);
+route.get('/fs_crud/users', auth, getUsers);
+
+//insert data in the basic_details table
+route.get('/insert_to_db_fr_form/basicdetails', auth, insertIntoBasicDetails);
+route.post('/insert_to_db_fr_form/basicdetails', auth, insertUserIntoBasicDetails);
+route.get('/insert_to_db_fr_form/users', auth, getUsersFromBasicDetails);
+route.get('/insert_to_db_fr_form/user/:user_id', auth, getUserFromBasicDetails);
+
+//pagination
+route.get('/pagination', auth, paginationGrid)
+
+//Attendence Master
+route.get('/attendence_master', auth, attendenceGrid)
+
+//Exam Master
+route.get('/exam_master', auth, examMasterGrid)
+route.get('/exam_master/student/:student_id', getStudentDetails);
+
+//Searching by Query in Grid
+route.post('/searching_by_query', postSearchByQuery);
+route.get('/searching_by_query', getGridOfSearchByQuery);
+
+//Searching by multiple fields
+route.get('/searching_by_multiple_field', searchingByMultipleFieldsGrid);
+route.post('/searching_by_multiple_field', postSearchingByMultipleFields);
+
+//Delimeter Searching
+route.get('/delimeter_search', delimeterSearchGrid);
+route.post('/delimeter_search', delimeterSearch);
+
+
+//Job Application CRUD
+route.get("/job_application", jobApplication);
+route.post("/job_application/send", postJobApplication);
+route.get("/job_application/update/:id", jobApplicationUpdationUi);
+route.put("/job_application/update/:id", updateJobApplication);
+route.get("/fetch/:id", fetchJobApplicationData)
+
+//Authentication
+route.get('/login', getLogin);
+route.post('/login', postLogin);
+route.get('/logout', auth, logOut);
+route.get('/register', getRegistration);
+route.post('/registraton', postRegistration);
+
+module.exports = route;
