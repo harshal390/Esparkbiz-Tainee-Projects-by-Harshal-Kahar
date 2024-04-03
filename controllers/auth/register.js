@@ -1,9 +1,6 @@
 const db = require("../../config/db");
 const bcrypt = require("bcryptjs");
 
-
-
-
 const insert_data = async (form_data) => {
     const sql_query = `INSERT INTO registration (full_name,user_name,email,mobile_number,gender,password) VALUES (?, ?, ?, ?, ?, ?)`;
     const { full_name, user_name, email, mobile_number, gender, password } = { ...form_data };

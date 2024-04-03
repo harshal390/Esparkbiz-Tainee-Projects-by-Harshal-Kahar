@@ -1,6 +1,7 @@
 const express = require('express');
 const route = express.Router();
-const {  getData, Table_title, object_to_keys } = require('../../controllers/searching_by_query');
+const { getData, Table_title, object_to_keys } = require('../../controllers/searching_by_query');
+const errorHandler = require("../../controllers/error/error_handler")
 
 route.post('/searching_by_query', async (req, res) => {
 
@@ -20,7 +21,7 @@ route.post('/searching_by_query', async (req, res) => {
     let orderString = order ? `ORDER BY ${order_id} ${order_by}` : "";
     let query_by_pagination = `${query.slice(0, -1)} ${orderString} ${limitString};`
     // console.log(query_by_pagination);
-    
+
     try {
         const entire_data = await getData(query);
         const n = entire_data.length;
@@ -28,8 +29,9 @@ route.post('/searching_by_query', async (req, res) => {
         const table_keys = object_to_keys(records[0]);
         const table_title = Table_title(records[0]);
         res.render('searching_by_query/index.ejs', { records, table_keys, table_title, n, limit, query });
-    } catch (error) {
-        res.render('searching_by_query/index.ejs', { err: error.toString().slice(5, -1) });
+    } catch (err) {
+        const error = { ejsFile: 'searching_by_query/index.ejs', error:err }
+        errorHandler(error, res);
     }
 
 }).get('/searching_by_query', async (req, res) => {
@@ -57,8 +59,9 @@ route.post('/searching_by_query', async (req, res) => {
         const table_keys = object_to_keys(records[0]);
         const table_title = Table_title(records[0]);
         res.render('searching_by_query/index.ejs', { records, table_keys, table_title, n, limit, query });
-    } catch (error) {
-        res.render('searching_by_query/index.ejs', { err: error.toString().slice(5, -1) });
+    } catch (err) {
+        const error = { ejsFile: 'searching_by_query/index.ejs', error:err }
+        errorHandler(error, res);
     }
 })
 
