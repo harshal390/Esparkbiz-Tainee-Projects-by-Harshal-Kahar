@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/pagination2.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-col items-center justify-center w-full">
+    <div class="search_bar border-2 rounded-full overflow-hidden flex my-5 border-purple-500 relative w-[25%]">
+        <input id="search_input" type="text" class="border-2 outline-none px-5 py-3 w-full" placeholder="Search Any keyword">
+        <button id="search_btn" class="text-xl px-5 py-2 flex items-center justify-center border-none outline-none  bg-[#00ffff] hover:bg-[#00b7ff] duration-300 rounded-full absolute top-0 right-0 h-full">Search</button>
+    </div>
+    <div class="post_content text-xl p-10 flex flex-col min-h-[650px]" id="post_content">
+
+    </div>
+    <div class="pagination flex-center">
+        <span id="double_prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="m12.707 7.707-1.414-1.414L5.586 12l5.707 5.707 1.414-1.414L8.414 12z"></path>
+                <path d="M16.293 6.293 10.586 12l5.707 5.707 1.414-1.414L13.414 12l4.293-4.293z"></path>
+            </svg></span>
+        <span id="prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+            </svg></span>
+        <span id="count">1</span>
+        <span id="next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+            </svg></span>
+        <span id="double_next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M10.296 7.71 14.621 12l-4.325 4.29 1.408 1.42L17.461 12l-5.757-5.71z"></path>
+                <path d="M6.704 6.29 5.296 7.71 9.621 12l-4.325 4.29 1.408 1.42L12.461 12z"></path>
+            </svg></span>
+    </div>
+</body>
+<script src="/js/spa/script.js"></script>
+
+</html>

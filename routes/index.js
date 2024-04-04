@@ -45,7 +45,13 @@ route.post('/searching_by_multiple_field',auth, postSearchingByMultipleFields);
 route.get('/delimeter_search',auth, delimeterSearchGrid);
 route.post('/delimeter_search',auth, delimeterSearch);
 
-
+//Single Page Application
+route.get('/spa',auth, (req, res) => {
+    res.render('spa/index.ejs');
+})
+route.get('/spa/posts/:post_id',auth, (req, res) => {
+    res.render('spa/post_details.ejs');
+})
 //Job Application CRUD
 route.get("/job_application",auth, jobApplication);
 route.post("/job_application/send",auth, postJobApplication);

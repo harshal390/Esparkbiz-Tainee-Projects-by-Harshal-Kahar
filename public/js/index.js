@@ -89,6 +89,12 @@ const projectData = [
     },
     {
         id: 15,
+        date: "10/3/2024",
+        title: "Sigle Page Application using ExpressJS",
+        url: `http://localhost:${port}/spa`
+    },
+    {
+        id: 16,
         date: "18/3/2024",
         title: "Job Application CRUD",
         url: `http://localhost:${port}/job_application`
