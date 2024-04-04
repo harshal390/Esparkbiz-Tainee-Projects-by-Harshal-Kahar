@@ -8,6 +8,11 @@ const valid_msg = node_by_id("valid_msg");
 const success_msg = node_by_id("success_msg");
 const fail_msg = node_by_id("fail_msg");
 const register_btn = node_by_id("register_btn");
+const password_inputs = nodes_by_query("input[type='password']");
+const show_hide_pass = node_by_id("show_hide_pass");
+const show_pass = node_by_id("show_pass");
+const hide_pass = node_by_id("hide_pass");
+let password_show = false;
 
 const empty_string_validation = (id) => {
     // console.log("id", id);
@@ -69,6 +74,24 @@ const login_validation = () => {
     return userNameValid && passwordValid;
 }
 
+const showhidepassword = () => {
+    if (!password_show) {
+        Array.from(password_inputs).map((ele) => {
+            if (ele.type !== "hidden") ele.type = "text";
+        });
+        password_show = true;
+        hide_pass.classList.remove("hidden");
+        show_pass.classList.add("hidden");
+    } else {
+        Array.from(password_inputs).map((ele) => {
+            if (ele.type !== "hidden") ele.type = "password";
+        });
+        password_show = false;
+        hide_pass.classList.add("hidden");
+        show_pass.classList.remove("hidden");
+    }
+}
+
 const postFormDataAsJson = async (url, formData) => {
     const plainFormData = Object.fromEntries(formData.entries());
     const formDataJsonString = JSON.stringify(plainFormData);
@@ -120,5 +143,6 @@ const LoginUser = async () => {
 
 }
 
+show_hide_pass.addEventListener("click", () => showhidepassword());
 login_btn.addEventListener("click", () => { LoginUser() })
 register_btn.addEventListener("click", () => window.location.pathname = "/register")

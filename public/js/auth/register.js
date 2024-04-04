@@ -13,6 +13,11 @@ const success_msg = node_by_id("success_msg");
 const fail_msg = node_by_id("fail_msg");
 const valid_msg = node_by_id("valid_msg");
 const login_btn = node_by_id("login_btn")
+const password_inputs = nodes_by_query("input[type='password']");
+const show_hide_pass = node_by_id("show_hide_pass");
+const show_pass = node_by_id("show_pass");
+const hide_pass = node_by_id("hide_pass");
+let password_show = false;
 
 const radio_vaildation = (selected_radio) => {
     let gender_obj = {};
@@ -91,6 +96,24 @@ const Password_validation = (id) => {
 
 const matchPassword = (x, y) => x === y;
 
+const showhidepassword = () => {
+    if (!password_show) {
+        Array.from(password_inputs).map((ele) => {
+            if (ele.type !== "hidden") ele.type = "text";
+        });
+        password_show = true;
+        hide_pass.classList.remove("hidden");
+        show_pass.classList.add("hidden");
+    } else {
+        Array.from(password_inputs).map((ele) => {
+            if (ele.type !== "hidden") ele.type = "password";
+        });
+        password_show = false;
+        hide_pass.classList.add("hidden");
+        show_pass.classList.remove("hidden");
+    }
+}
+
 const registration_validation = () => {
     const fullNameValid = empty_string_validation(full_name);
     const userNameValid = empty_string_validation(user_name);
@@ -157,5 +180,6 @@ const RegisterUser = async () => {
     }
 }
 
+show_hide_pass.addEventListener("click", () => showhidepassword());
 register_btn.addEventListener("click", () => { RegisterUser() })
 login_btn.addEventListener("click", () => window.location.pathname = "/login");
