@@ -1,7 +1,7 @@
 const express = require('express');
 const route = express.Router();
 const { auth } = require("../middleware/auth");
-const { home, dynamic_table, kuku_cube, tic_tac_toe, static_website_1, static_website_2, static_website_3, getLogin, postLogin, logOut, getRegistration, postRegistration, getBasicDetails, postBasicDetails, getUser, getUsers, insertIntoBasicDetails, insertUserIntoBasicDetails, getUsersFromBasicDetails, getUserFromBasicDetails, paginationGrid, attendenceGrid, examMasterGrid, getStudentDetails, postSearchByQuery, getGridOfSearchByQuery, searchingByMultipleFieldsGrid, postSearchingByMultipleFields, delimeterSearchGrid, delimeterSearch, jobApplication, postJobApplication, jobApplicationUpdationUi, updateJobApplication, fetchJobApplicationData } = require("../controllers")
+const { home, dynamic_table, kuku_cube, tic_tac_toe, static_website_1, static_website_2, static_website_3, getLogin, postLogin, logOut, getRegistration, postRegistration, getBasicDetails, postBasicDetails, getUser, getUsers, insertIntoBasicDetails, insertUserIntoBasicDetails, getUsersFromBasicDetails, getUserFromBasicDetails, paginationGrid, attendenceGrid, examMasterGrid, getStudentDetails, postSearchByQuery, getGridOfSearchByQuery, searchingByMultipleFieldsGrid, postSearchingByMultipleFields, delimeterSearchGrid, delimeterSearch, jobApplication, postJobApplication, jobApplicationUpdationUi, updateJobApplication, fetchJobApplicationData, renderSPA, renderSPApostData } = require("../controllers")
 
 route.get('/', auth, home);
 route.get('/dynamic_table', auth, dynamic_table);
@@ -31,33 +31,29 @@ route.get('/attendence_master', auth, attendenceGrid)
 
 //Exam Master
 route.get('/exam_master', auth, examMasterGrid)
-route.get('/exam_master/student/:student_id',auth, getStudentDetails);
+route.get('/exam_master/student/:student_id', auth, getStudentDetails);
 
 //Searching by Query in Grid
-route.post('/searching_by_query',auth, postSearchByQuery);
-route.get('/searching_by_query',auth, getGridOfSearchByQuery);
+route.post('/searching_by_query', auth, postSearchByQuery);
+route.get('/searching_by_query', auth, getGridOfSearchByQuery);
 
 //Searching by multiple fields
-route.get('/searching_by_multiple_field',auth, searchingByMultipleFieldsGrid);
-route.post('/searching_by_multiple_field',auth, postSearchingByMultipleFields);
+route.get('/searching_by_multiple_field', auth, searchingByMultipleFieldsGrid);
+route.post('/searching_by_multiple_field', auth, postSearchingByMultipleFields);
 
 //Delimeter Searching
-route.get('/delimeter_search',auth, delimeterSearchGrid);
-route.post('/delimeter_search',auth, delimeterSearch);
+route.get('/delimeter_search', auth, delimeterSearchGrid);
+route.post('/delimeter_search', auth, delimeterSearch);
 
 //Single Page Application
-route.get('/spa',auth, (req, res) => {
-    res.render('spa/index.ejs');
-})
-route.get('/spa/posts/:post_id',auth, (req, res) => {
-    res.render('spa/post_details.ejs');
-})
+route.get('/spa', auth, renderSPA)
+route.get('/spa/posts/:post_id', auth, renderSPApostData)
 //Job Application CRUD
-route.get("/job_application",auth, jobApplication);
-route.post("/job_application/send",auth, postJobApplication);
-route.get("/job_application/update/:id",auth, jobApplicationUpdationUi);
-route.put("/job_application/update/:id",auth, updateJobApplication);
-route.get("/fetch/:id",auth, fetchJobApplicationData)
+route.get("/job_application", auth, jobApplication);
+route.post("/job_application/send", auth, postJobApplication);
+route.get("/job_application/update/:id", auth, jobApplicationUpdationUi);
+route.put("/job_application/update/:id", auth, updateJobApplication);
+route.get("/fetch/:id", auth, fetchJobApplicationData)
 
 //Authentication
 route.get('/login', getLogin);
