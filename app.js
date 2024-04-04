@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const route = require("./routes/index");
+const route = require("./routes");
 
 //for 3rd party middleware (take input from ejs/html form)
 const bodyParser = require("body-parser");

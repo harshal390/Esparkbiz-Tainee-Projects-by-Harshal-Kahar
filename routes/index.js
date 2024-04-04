@@ -31,27 +31,27 @@ route.get('/attendence_master', auth, attendenceGrid)
 
 //Exam Master
 route.get('/exam_master', auth, examMasterGrid)
-route.get('/exam_master/student/:student_id', getStudentDetails);
+route.get('/exam_master/student/:student_id',auth, getStudentDetails);
 
 //Searching by Query in Grid
-route.post('/searching_by_query', postSearchByQuery);
-route.get('/searching_by_query', getGridOfSearchByQuery);
+route.post('/searching_by_query',auth, postSearchByQuery);
+route.get('/searching_by_query',auth, getGridOfSearchByQuery);
 
 //Searching by multiple fields
-route.get('/searching_by_multiple_field', searchingByMultipleFieldsGrid);
-route.post('/searching_by_multiple_field', postSearchingByMultipleFields);
+route.get('/searching_by_multiple_field',auth, searchingByMultipleFieldsGrid);
+route.post('/searching_by_multiple_field',auth, postSearchingByMultipleFields);
 
 //Delimeter Searching
-route.get('/delimeter_search', delimeterSearchGrid);
-route.post('/delimeter_search', delimeterSearch);
+route.get('/delimeter_search',auth, delimeterSearchGrid);
+route.post('/delimeter_search',auth, delimeterSearch);
 
 
 //Job Application CRUD
-route.get("/job_application", jobApplication);
-route.post("/job_application/send", postJobApplication);
-route.get("/job_application/update/:id", jobApplicationUpdationUi);
-route.put("/job_application/update/:id", updateJobApplication);
-route.get("/fetch/:id", fetchJobApplicationData)
+route.get("/job_application",auth, jobApplication);
+route.post("/job_application/send",auth, postJobApplication);
+route.get("/job_application/update/:id",auth, jobApplicationUpdationUi);
+route.put("/job_application/update/:id",auth, updateJobApplication);
+route.get("/fetch/:id",auth, fetchJobApplicationData)
 
 //Authentication
 route.get('/login', getLogin);
