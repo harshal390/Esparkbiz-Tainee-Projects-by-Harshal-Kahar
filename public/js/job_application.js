@@ -29,7 +29,7 @@ const zipcode = node_by_id("zipcode");
 const date_of_birth = node_by_id("date_of_birth");
 const state = node_by_id("state");
 const relationship_status = node_by_id("relationship_status");
-const gender_selected = document.querySelector('input[name="gender"]:checked');
+const gender_radios = nodes_by_query('input[name="gender"]');
 const ssc_results_inputs = nodes_by_query("#ssc_results_box input");
 const hsc_diploma_results_inputs = nodes_by_query("#hsc_diploma_results_box input");
 const bachlore_degree_results_inputs = nodes_by_query("#bachlore_degree_box input");
@@ -103,14 +103,44 @@ check_condition_for_button = (count_value) => {
 
 }
 const radio_vaildation = (selected_radio) => {
-    console.log("selected_radio", selected_radio);
-    if (selected_radio) {
-        // console.log("radio button selected");
+    // console.log(selected_radio[0].name);
+    const new_id = node_by_id(selected_radio[0].name.concat("_valid"));
+    console.log(new_id);
+    let gender_obj = {};
+    Array.from(selected_radio).map(ele => {
+        gender_obj[ele.value] = ele.checked;
+        // console.log(ele.checked);
+    })
+    if (Object.keys(gender_obj).some((ele) => gender_obj[ele])) {
+        new_id.classList.remove("hidden", "fill-red-500");
+        new_id.classList.add("fill-green-500");
         return true;
+
     } else {
-        // console.log("radio button does not selected");
+        new_id.classList.remove("hidden", "fill-green-500");
+        new_id.classList.add("fill-red-500");
         return false;
-    }
+    };
+};
+const check_radio_vaildation = (selected_radio) => {
+    // console.log(selected_radio[0].name);
+    const new_id = node_by_id(selected_radio[0].name.concat("_valid"));
+    ;
+    let gender_obj = {};
+    Array.from(selected_radio).map(ele => {
+        gender_obj[ele.value] = ele.checked;
+        // console.log(ele.checked);
+    })
+    if (Object.keys(gender_obj).some((ele) => gender_obj[ele]) && node_by_id(selected_radio[0].id.split("_")[0]).checked) {
+        new_id.classList.remove("hidden", "fill-red-500");
+        new_id.classList.add("fill-green-500");
+        return true;
+
+    } else {
+        new_id.classList.remove("hidden", "fill-green-500");
+        new_id.classList.add("fill-red-500");
+        return false;
+    };
 };
 
 
@@ -165,7 +195,7 @@ const basic_details_validation = () => {
     let val_10 = empty_string_validation(date_of_birth);
     let val_11 = empty_string_validation(state);
     let val_12 = empty_string_validation(relationship_status);
-    let val_13 = radio_vaildation(gender_selected);
+    let val_13 = radio_vaildation(gender_radios);
     // console.log(val_1, val_2, val_3, val_4, val_5, val_6, val_7, val_8, val_9, val_10, val_11, val_12, val_13);
     let any_false = val_1 && val_2 && val_3 && val_4 && val_5 && val_6 && val_7 && val_8 && val_9 && val_10 && val_11 && val_12 && val_13;
     return any_false;
@@ -269,10 +299,54 @@ const language_technology_validation = () => {
         obj_eng[ele.id] = ele.value;
     })
 
-    // console.log(hindi.checked , Object.keys(obj_hindi).some((ele) => obj_hindi[ele] === "1") , english.checked , Object.keys(obj_eng).some((ele) => obj_eng[ele] === "1") , gujarati.checked
-    // , Object.keys(obj_gujarati).some((ele) => obj_gujarati[ele] === "1") , php_check.checked , mysql_check.checked , larave_check.checked , oracle_check.checked , radio_vaildation(php_selected) , radio_vaildation(mysql_selected) , radio_vaildation(larave_selected) , radio_vaildation(oracle_selected));
-    if (hindi.checked && Object.keys(obj_hindi).some((ele) => obj_hindi[ele] === "1") && english.checked && Object.keys(obj_eng).some((ele) => obj_eng[ele] === "1") && gujarati.checked
-        && Object.keys(obj_gujarati).some((ele) => obj_gujarati[ele] === "1") && php_check.checked && mysql_check.checked && larave_check.checked && oracle_check.checked && radio_vaildation(php_selected) && radio_vaildation(mysql_selected) && radio_vaildation(larave_selected) && radio_vaildation(oracle_selected)) {
+    // console.log(hindi.checked, Object.keys(obj_hindi).some((ele) => obj_hindi[ele] === "1"), english.checked, Object.keys(obj_eng).some((ele) => obj_eng[ele] === "1"), gujarati.checked,
+    //     Object.keys(obj_gujarati).some((ele) => obj_gujarati[ele] === "1"), php_check.checked, mysql_check.checked, larave_check.checked, oracle_check.checked, radio_vaildation(php_radios), radio_vaildation(mysql_radios), radio_vaildation(larave_radios), radio_vaildation(oracle_radios));
+
+    const hindi_validation = () => {
+        const new_id = node_by_id("hindi_valid");
+        if (hindi.checked && Object.keys(obj_hindi).some((ele) => obj_hindi[ele] === "1")) {
+            new_id.classList.remove("hidden", "fill-red-500");
+            new_id.classList.add("fill-green-500");
+            return true;
+        } else {
+            new_id.classList.remove("hidden", "fill-green-500");
+            new_id.classList.add("fill-red-500");
+            return false;
+        }
+    }
+    const english_validation = () => {
+        const new_id = node_by_id("english_valid");
+        if (english.checked && Object.keys(obj_eng).some((ele) => obj_eng[ele] === "1")) {
+            new_id.classList.remove("hidden", "fill-red-500");
+            new_id.classList.add("fill-green-500");
+            return true;
+        } else {
+            new_id.classList.remove("hidden", "fill-green-500");
+            new_id.classList.add("fill-red-500");
+            return false;
+        }
+    }
+    const gujarati_validation = () => {
+        const new_id = node_by_id("gujarati_valid");
+        if (gujarati.checked && Object.keys(obj_gujarati).some((ele) => obj_gujarati[ele] === "1")) {
+            new_id.classList.remove("hidden", "fill-red-500");
+            new_id.classList.add("fill-green-500");
+            return true;
+        } else {
+            new_id.classList.remove("hidden", "fill-green-500");
+            new_id.classList.add("fill-red-500");
+            return false;
+        }
+    }
+    const hindi_validation_var = hindi_validation();
+    const english_validation_var = english_validation();
+    const gujarati_validation_var = gujarati_validation();
+    const php_validaton_var = check_radio_vaildation(php_radios);
+    const mysql_validation_var = check_radio_vaildation(mysql_radios);
+    const larave_validation_var = check_radio_vaildation(larave_radios);
+    const oracle_validation_var = check_radio_vaildation(oracle_radios);
+
+    if (hindi_validation_var && english_validation_var && gujarati_validation_var && php_validaton_var && mysql_validation_var && larave_validation_var && oracle_validation_var) {
         return true;
     } else {
         return false;
@@ -347,8 +421,10 @@ const prev_page = () => {
 const next_page = () => {
     if (count < obj.length && validation(count)) {
         // console.log("next");
-        check_condition(++count);
-        check_condition_for_button(count);
+        setTimeout(() => {
+            check_condition(++count);
+            check_condition_for_button(count);
+        }, 500);
     }
 
 }

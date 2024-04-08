@@ -10,7 +10,8 @@
 
 <body class="max-w-[1440px] my-10 mx-auto">
     <div class="text-green-500 text-center text-3xl my-5 hidden" id="success_msg">Data Inserted Successfully...</div>
-    <div class="text-orange-500 text-center text-3xl my-5 hidden" id="success_update_msg">Data Updated Successfully...</div>
+    <div class="text-orange-500 text-center text-3xl my-5 hidden" id="success_update_msg">Data Updated Successfully...
+    </div>
     <form method="post" action="send">
         <section id="1"
             class="basic_details border p-10 flex flex-col gap-7 rounded-lg big-shadow w-full min-h-[710px] justify-center">
@@ -81,11 +82,19 @@
                     </div>
 
                     <div class="flex items-center justify-start gap-5">
-                        <label for="gender">Choose a Gender</label>
-                        <input type="radio" id="male" name="gender" value="male">
-                        <label for="male">Male</label>
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label for="female">Female</label>
+                        <div class="flex items-center justify-start gap-5">
+                            <label for="gender">Choose a Gender</label>
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                        <span class="hidden" id="gender_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg></span>
                     </div>
 
                     <div class="flex items-center justify-start gap-5">
@@ -96,7 +105,7 @@
                         </select>
                     </div>
                 </div>
-               
+
             </div>
         </section>
 
@@ -104,91 +113,91 @@
             class="educationDetails p-10 hidden flex-col gap-7 rounded-lg big-shadow w-full border min-h-[710px] justify-center">
             <h2 class="text-2xl font-semibold text-purple-500">Education Details </h2>
             <div class="grid grid-cols-2 gap-5">
-                <div class="flex flex-col gap-5" >
+                <div class="flex flex-col gap-5">
                     <h5 class="text-2xl font-semibold text-purple-500">SSC Results</h5>
                     <input name="edu_type[]" type="hidden" value="ssc results">
                     <div class="flex flex-col gap-5" id="ssc_results_box">
                         <div>
                             <label for="ssc_name_of_board">Name of Board</label>
-                            <input id="ssc_name_of_board" type="text" name="name_of_board[]" 
+                            <input id="ssc_name_of_board" type="text" name="name_of_board[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                         <div>
                             <label for="ssc_passing_year">Passing Year</label>
-                            <input id="ssc_passing_year" type="text" name="passing_year[]" 
+                            <input id="ssc_passing_year" type="text" name="passing_year[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                         <div>
                             <label for="ssc_percentage">Percentage</label>
-                            <input id="ssc_percentage" type="text" name="percentage[]" 
+                            <input id="ssc_percentage" type="text" name="percentage[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-5" >
+                <div class="flex flex-col gap-5">
                     <h5 class="text-2xl font-semibold text-purple-500">HSC/DIPLOMA RESULTS</h5>
                     <input name="edu_type[]" type="hidden" value="hsc/diploma results">
                     <div class="flex flex-col gap-5" id="hsc_diploma_results_box">
                         <div>
                             <label for="hsc_diploma_name_of_board">Name of Board</label>
-                            <input id="hsc_diploma_name_of_board" type="text" name="name_of_board[]" 
+                            <input id="hsc_diploma_name_of_board" type="text" name="name_of_board[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                         <div>
                             <label for="hsc_diploma_passing_year">Passing Year</label>
-                            <input id="hsc_diploma_passing_year" type="text" name="passing_year[]" 
+                            <input id="hsc_diploma_passing_year" type="text" name="passing_year[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                         <div>
                             <label for="hsc_diploma_percentage">Percentage</label>
-                            <input id="hsc_diploma_percentage" type="text" name="percentage[]" 
+                            <input id="hsc_diploma_percentage" type="text" name="percentage[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-5" >
+                <div class="flex flex-col gap-5">
                     <h5 class="text-2xl font-semibold text-purple-500">BACHLORE DEGREE</h5>
                     <input name="edu_type[]" type="hidden" value="bachlore degree">
                     <div class="flex flex-col gap-5" id="bachlore_degree_box">
                         <div>
                             <label for="bach_name_of_board">Course Name</label>
-                            <input id="bach_name_of_board" type="text" name="name_of_board[]" 
+                            <input id="bach_name_of_board" type="text" name="name_of_board[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
-                        
+
                         <div>
                             <label for="bach_passing_year">Passing Year</label>
-                            <input id="bach_passing_year" type="text" name="passing_year[]" 
+                            <input id="bach_passing_year" type="text" name="passing_year[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                         <div>
                             <label for="bach_percentage">Percentage</label>
-                            <input id="bach_percentage" type="text" name="percentage[]" 
+                            <input id="bach_percentage" type="text" name="percentage[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-5" >
+                <div class="flex flex-col gap-5">
                     <h5 class="text-2xl font-semibold text-purple-500">MASTER DEGREE</h5>
                     <input name="edu_type[]" type="hidden" value="master degree">
                     <div class="flex flex-col gap-5" id="master_degree_box">
                         <div>
                             <label for="master_name_of_board">Course Name</label>
-                            <input id="master_name_of_board" type="text" name="name_of_board[]" 
+                            <input id="master_name_of_board" type="text" name="name_of_board[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
-                      
+
                         <div>
                             <label for="master_passing_year">Passing Year</label>
-                            <input id="master_passing_year" type="text" name="passing_year[]" 
+                            <input id="master_passing_year" type="text" name="passing_year[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                         <div>
                             <label for="master_percentage">Percentage</label>
-                            <input id="master_percentage" type="text" name="percentage[]" 
+                            <input id="master_percentage" type="text" name="percentage[]"
                                 class="border border-gray-300 outline-none p-2 rounded-lg w-[75%]" />
                         </div>
                     </div>
@@ -274,180 +283,249 @@
                 <h2 class="text-2xl font-semibold text-purple-500">Language Known</h2>
                 <div class="flex flex-col  gap-5">
                     <div class="flex items-center gap-5">
-                        <span class="flex gap-5">
-                            <label for="hindi">Hindi</label>
-                            <input type="checkbox" value="hindi"  name="language_name[]" id="hindi">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="hindi_read">Read</label>
-                            <input type="checkbox"   name="is_read[]" id="hindi_read" class="checkbox hindi_checkbox">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="hindi_write">Write</label>
-                            <input type="checkbox"   name="is_write[]" id="hindi_write" class="checkbox hindi_checkbox">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="hindi_speak">Speak</label>
-                            <input type="checkbox"   name="is_speak[]" id="hindi_speak" class="checkbox hindi_checkbox">
+                        <div class="flex items-center gap-5">
+                            <span class="flex gap-5">
+                                <label for="hindi">Hindi</label>
+                                <input type="checkbox" value="hindi" name="language_name[]" id="hindi">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="hindi_read">Read</label>
+                                <input type="checkbox" name="is_read[]" id="hindi_read" class="checkbox hindi_checkbox">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="hindi_write">Write</label>
+                                <input type="checkbox" name="is_write[]" id="hindi_write"
+                                    class="checkbox hindi_checkbox">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="hindi_speak">Speak</label>
+                                <input type="checkbox" name="is_speak[]" id="hindi_speak"
+                                    class="checkbox hindi_checkbox">
+                            </span>
+                        </div>
+                        <span class="hidden" id="hindi_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg>
                         </span>
                     </div>
                     <div class="flex items-center gap-5">
-                        <span class="flex gap-5">
-                            <label for="english">English</label>
-                            <input type="checkbox" value="english"  name="language_name[]" id="english">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="english_read">Read</label>
-                            <input type="checkbox"   name="is_read[]" id="english_read" class="checkbox english_checkbox">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="english_write">Write</label>
-                            <input type="checkbox"   name="is_write[]" id="english_write" class="checkbox english_checkbox">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="english_speak">Speak</label>
-                            <input type="checkbox"   name="is_speak[]" id="english_speak" class="checkbox english_checkbox">
+                        <div class="flex gap-5 items-center">
+                            <span class="flex gap-5">
+                                <label for="english">English</label>
+                                <input type="checkbox" value="english" name="language_name[]" id="english">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="english_read">Read</label>
+                                <input type="checkbox" name="is_read[]" id="english_read"
+                                    class="checkbox english_checkbox">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="english_write">Write</label>
+                                <input type="checkbox" name="is_write[]" id="english_write"
+                                    class="checkbox english_checkbox">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="english_speak">Speak</label>
+                                <input type="checkbox" name="is_speak[]" id="english_speak"
+                                    class="checkbox english_checkbox">
+                            </span>
+                        </div>
+                        <span class="hidden" id="english_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg>
                         </span>
 
                     </div>
                     <div class="flex items-center gap-5">
-                        <span class="flex gap-5">
-                            <label for="gujarati">Gujarati</label>
-                            <input type="checkbox" value="gujarati"  name="language_name[]" id="gujarati">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="gujarati_read">Read</label>
-                            <input type="checkbox" name="is_read[]" id="gujarati_read" class="checkbox gujarati_checkbox">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="gujarati_write">Write</label>
-                            <input type="checkbox" name="is_write[]" id="gujarati_write" class="checkbox gujarati_checkbox">
-                        </span>
-                        <span class="flex gap-5">
-                            <label for="gujarati_speak">Speak</label>
-                            <input type="checkbox" name="is_speak[]" id="gujarati_speak" class="checkbox gujarati_checkbox">
+                        <div class="flex gap-5 items-center">
+                            <span class="flex gap-5">
+                                <label for="gujarati">Gujarati</label>
+                                <input type="checkbox" value="gujarati" name="language_name[]" id="gujarati">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="gujarati_read">Read</label>
+                                <input type="checkbox" name="is_read[]" id="gujarati_read"
+                                    class="checkbox gujarati_checkbox">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="gujarati_write">Write</label>
+                                <input type="checkbox" name="is_write[]" id="gujarati_write"
+                                    class="checkbox gujarati_checkbox">
+                            </span>
+                            <span class="flex gap-5">
+                                <label for="gujarati_speak">Speak</label>
+                                <input type="checkbox" name="is_speak[]" id="gujarati_speak"
+                                    class="checkbox gujarati_checkbox">
+                            </span>
+                        </div>
+                        <span class="hidden" id="gujarati_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg>
                         </span>
                     </div>
+
                 </div>
             </div>
             <div class="technology_known flex flex-col gap-7 rounded-lg big-shadow w-full p-10">
                 <h2 class="text-2xl font-semibold text-purple-500">Technology You Known</h2>
                 <div class="flex gap-5">
-                    <span class="flex gap-5">
-                        <label for="php">PHP</label>
-                        <input type="checkbox"  name="technology_name[]" id="php" value="php" checked>
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="php_beginer">Beginer </label>
-                        <input type="radio" id="php_beginer" name="php_level" value="beginer">
+                    <div class="flex gap-5">
+                        <span class="flex gap-5">
+                            <label for="php">PHP</label>
+                            <input type="checkbox" name="technology_name[]" id="php" value="php" checked>
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="php_beginer">Beginer </label>
+                            <input type="radio" id="php_beginer" name="php_level" value="beginer">
 
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="php_mideator">Mideator</label>
-                        <input type="radio" name="php_level" id="php_mideator" value="mideator">
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="php_expert">Expert</label>
-                        <input type="radio" name="php_level" id="php_expert" value="expert">
-                    </span>
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="php_mideator">Mideator</label>
+                            <input type="radio" name="php_level" id="php_mideator" value="mideator">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="php_expert">Expert</label>
+                            <input type="radio" name="php_level" id="php_expert" value="expert">
+                        </span>
+                    </div>
+                    <span class="hidden" id="php_level_valid">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                            </path>
+                        </svg></span>
 
                 </div>
                 <div class="flex gap-5">
-                    <span class="flex gap-5">
-                        <label for="mysql">MySql</label>
-                        <input type="checkbox" name="technology_name[]" id="mysql" value="mysql" checked>
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="mysql_beginer">Beginer </label>
-                        <input type="radio" id="mysql_beginer" name="mysql_level" value="beginer">
+                    <div class="flex gap-5">
+                        <span class="flex gap-5">
+                            <label for="mysql">MySql</label>
+                            <input type="checkbox" name="technology_name[]" id="mysql" value="mysql" checked>
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="mysql_beginer">Beginer </label>
+                            <input type="radio" id="mysql_beginer" name="mysql_level" value="beginer">
 
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="mysql_mideator">Mideator</label>
-                        <input type="radio" id="mysql_mideator" name="mysql_level" id="mysql_mideator" value="mideator">
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="mysql_expert">Expert</label>
-                        <input type="radio" id="mysql_expert" name="mysql_level" id="mysql_expert" value="expert">
-                    </span>
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="mysql_mideator">Mideator</label>
+                            <input type="radio" id="mysql_mideator" name="mysql_level" id="mysql_mideator"
+                                value="mideator">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="mysql_expert">Expert</label>
+                            <input type="radio" id="mysql_expert" name="mysql_level" id="mysql_expert" value="expert">
+                        </span>
+                    </div>
+                    <span class="hidden" id="mysql_level_valid">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                            </path>
+                        </svg></span>
                 </div>
                 <div class="flex gap-5">
-                    <span class="flex gap-5">
-                        <label for="larave">Larave</label>
-                        <input type="checkbox" name="technology_name[]" id="larave" value="larave" checked>
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="larave_beginer">Beginer </label>
-                        <input type="radio" name="larave_level" id="larave_beginer" value="beginer">
+                    <div class="flex gap-5">
+                        <span class="flex gap-5">
+                            <label for="larave">Larave</label>
+                            <input type="checkbox" name="technology_name[]" id="larave" value="larave" checked>
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="larave_beginer">Beginer </label>
+                            <input type="radio" name="larave_level" id="larave_beginer" value="beginer">
 
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="larave_mideator">Mideator</label>
-                        <input type="radio" name="larave_level" id="larave_mideator" value="mideator">
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="larave_expert">Expert</label>
-                        <input type="radio" name="larave_level" id="larave_expert" value="expert">
-                    </span>
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="larave_mideator">Mideator</label>
+                            <input type="radio" name="larave_level" id="larave_mideator" value="mideator">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="larave_expert">Expert</label>
+                            <input type="radio" name="larave_level" id="larave_expert" value="expert">
+                        </span>
+                    </div>
+                    <span class="hidden" id="larave_level_valid">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                            </path>
+                        </svg></span>
                 </div>
                 <div class="flex gap-5">
-                    <span class="flex gap-5">
-                        <label for="oracle">Oracle</label>
-                        <input type="checkbox" name="technology_name[]" id="oracle" value="oracle" checked> 
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="oracle_beginer">Beginer </label>
-                        <input type="radio" id="oracle_beginer" name="oracle_level" value="beginer">
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="oracle_mideator">Mideator</label>
-                        <input type="radio" id="oracle_mideator" name="oracle_level" value="mideator">
-                    </span>
-                    <span class="flex gap-5">
-                        <label for="oracle_expert">Expert</label>
-                        <input type="radio" id="oracle_expert" name="oracle_level" value="expert">
-                    </span>
+                    <div class="flex gap-5">
+                        <span class="flex gap-5">
+                            <label for="oracle">Oracle</label>
+                            <input type="checkbox" name="technology_name[]" id="oracle" value="oracle" checked>
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="oracle_beginer">Beginer </label>
+                            <input type="radio" id="oracle_beginer" name="oracle_level" value="beginer">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="oracle_mideator">Mideator</label>
+                            <input type="radio" id="oracle_mideator" name="oracle_level" value="mideator">
+                        </span>
+                        <span class="flex gap-5">
+                            <label for="oracle_expert">Expert</label>
+                            <input type="radio" id="oracle_expert" name="oracle_level" value="expert">
+                        </span>
+                    </div>
+                    <span class="hidden" id="oracle_level_valid">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                            </path>
+                        </svg></span>
                 </div>
             </div>
         </section>
         <section id="5"
             class="reference_contact hidden my-10 border p-10  flex-col gap-7 rounded-lg big-shadow min-h-[710px] justify-center">
             <h2 class="text-2xl font-semibold text-purple-500">Reference Contact</h2>
-            <div class="flex flex-col  gap-5" >
+            <div class="flex flex-col  gap-5">
                 <div class="grid grid-cols-3 items-center justify-start gap-5" id="reference_box_1">
                     <span class="flex items-center gap-3">
                         <label class="font-medium" for="name_1">Name</label>
-                        <input id="r_name_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
-                            name="r_name[]" id="name_1" placeholder="Name" />
+                        <input id="r_name_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]"
+                            type="text" name="r_name[]" id="name_1" placeholder="Name" />
                     </span>
                     <span class="flex items-center gap-3">
                         <label class="font-medium" for="contact_number_1">Contact Number
                         </label>
-                        <input id="r_contact_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
-                            name="r_contact[]" id="contact_number_1" placeholder="Contact Number" />
+                        <input id="r_contact_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]"
+                            type="text" name="r_contact[]" id="contact_number_1" placeholder="Contact Number" />
                     </span>
                     <span class="flex items-center gap-3">
                         <label class="font-medium" for="relation_1">Relation</label>
-                        <input id="r_relation_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
-                            name="r_relation[]" id="relation_1" placeholder="Relation" />
+                        <input id="r_relation_1" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]"
+                            type="text" name="r_relation[]" id="relation_1" placeholder="Relation" />
                     </span>
                 </div>
                 <div class="grid grid-cols-3 items-center justify-start gap-5" id="reference_box_2">
                     <span class="flex items-center gap-3">
                         <label class="font-medium" for="name_2">Name</label>
-                        <input id="r_name_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
-                            name="r_name[]" id="name_2" placeholder="Name" />
+                        <input id="r_name_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]"
+                            type="text" name="r_name[]" id="name_2" placeholder="Name" />
                     </span>
                     <span class="flex items-center gap-3">
                         <label class="font-medium" for="contact_number_2">Contact Number
                         </label>
-                        <input id="r_contact_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
-                            name="r_contact[]" id="contact_number_2" placeholder="Contact Number" />
+                        <input id="r_contact_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]"
+                            type="text" name="r_contact[]" id="contact_number_2" placeholder="Contact Number" />
                     </span>
                     <span class="flex items-center gap-3">
                         <label class="font-medium" for="relation_2">Relation</label>
-                        <input id="r_relation_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]" type="text"
-                            name="r_relation[]" id="relation_2" placeholder="Relation" />
+                        <input id="r_relation_2" class="border border-gray-300 outline-none p-2 rounded-lg w-[80%]"
+                            type="text" name="r_relation[]" id="relation_2" placeholder="Relation" />
                     </span>
                 </div>
             </div>
@@ -497,16 +575,18 @@
         </section>
 
         <div class="w-full flex justify-between my-5">
-            <button class="w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer opacity-40"
+            <button
+                class="w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer opacity-40"
                 type="button" id="prev">Prev</button>
             <button class="w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
                 type="button" id="next">Next</button>
-            <button class="hidden w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
-                 id="submit" type="button">Submit Form</button>
+            <button
+                class="hidden w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
+                id="submit" type="button">Submit Form</button>
         </div>
     </form>
 
-    
+
 </body>
 <script src="/js/job_application.js"></script>
 

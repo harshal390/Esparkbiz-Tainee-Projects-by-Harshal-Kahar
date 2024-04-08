@@ -2,19 +2,15 @@ const db = require('../../config/db');
 const errorHandler = require("../../controllers/error/error_handler");
 
 const insert_into_basic_details = async (forms_data) => {
-    try {
-        const sql = `INSERT INTO basic_details (first_name,last_name,designation,address_1,address_2,email,phone_number,city,state,gender,zipcode,relationship_status,date_of_birth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)`;
-        const { first_name, last_name, designation, address_1, address_2, email, phone_number, city, state, gender, zipcode, relationship_status, date_of_birth,
-        } = { ...forms_data };
-        // console.log(forms_data);
-        const result = await db.query(sql, [first_name, last_name, designation, address_1, address_2, email, phone_number, city, state, gender, zipcode, relationship_status, date_of_birth.split("/").reverse().join("-"),
-        ]);
-        console.log(`data inserted successfully :: basic_details at ${result[0].insertId}`)
-        return result[0].insertId;
-
-    } catch (error) {
-        return error;
-    }
+    const sql = `INSERT INTO basic_details (first_name,last_name,designation,address_1,address_2,email,phone_number,city,state,gender,zipcode,relationship_status,date_of_birth) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)`;
+    const { first_name, last_name, designation, address_1, address_2, email, phone_number, city, state, gender, zipcode, relationship_status, date_of_birth,
+    } = { ...forms_data };
+    // console.log(forms_data);
+    const result = await db.query(sql, [first_name, last_name, designation, address_1, address_2, email, phone_number, city, state, gender, zipcode, relationship_status, date_of_birth.split("/").reverse().join("-"),
+    ]);
+    if (result[0].error) throw new Error(rows[0].error.message);
+    console.log(`data inserted successfully :: basic_details at ${result[0].insertId}`)
+    return result[0].insertId;
 };
 
 const object_to_transpose_2d_array = (obj) => {
@@ -45,16 +41,12 @@ const object_to_transpose_2d_array = (obj) => {
 const insert_into_education_details = async (last_inserted_id, forms_data) => {
     forms_data.map(async (ele) => {
         if (!ele.includes('')) {
-        let sql = `INSERT INTO educations (employee_id,edu_type,name_of_board,passing_year,percentage) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[2]}","${ele[3]}");`;
-        // console.log(sql)
-        try {
-            await db.query(sql);
+            let sql = `INSERT INTO educations (employee_id,edu_type,name_of_board,passing_year,percentage) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[2]}","${ele[3]}");`;
+            // console.log(sql)
+            const result = await db.query(sql);
+            if (result[0].error) throw new Error(rows[0].error.message);
             console.log(`data inserted successfully :: education_details at ${last_inserted_id}`);
-        } catch (error) {
-            console.log(error);
-            return error;
         }
-    }
     });
 };
 
@@ -63,14 +55,10 @@ const insert_into_work_experiences = async (last_inserted_id, forms_data) => {
         // console.log(ele.includes(''));
         if (!ele.includes('')) {
             let sql = `INSERT INTO work_experiences (employee_id,company_name,designation,start_date,end_date) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[2].split("/").reverse().join("-")}","${ele[3].split("/").reverse().join("-")}");`;
-            console.log(sql)
-            try {
-                await db.query(sql);
-                console.log(`data inserted successfully :: work_experiences at ${last_inserted_id}`);
-            } catch (error) {
-                console.log(error);
-                return error;
-            }
+            // console.log(sql)
+            const result = await db.query(sql);
+            if (result[0].error) throw new Error(rows[0].error.message);
+            console.log(`data inserted successfully :: work_experiences at ${last_inserted_id}`);
         }
     });
 }
@@ -79,13 +67,9 @@ const insert_into_languages = async (last_inserted_id, forms_data) => {
     forms_data.map(async (ele) => {
         let sql = `INSERT INTO languages (employee_id,language_name,is_read,is_write,is_speak) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[2]}","${ele[3]}");`;
         // console.log(sql)
-        try {
-            await db.query(sql);
-            console.log(`data inserted successfully :: languages at ${last_inserted_id}`);
-        } catch (error) {
-            console.log(error);
-            return error;
-        }
+        const result = await db.query(sql);
+        if (result[0].error) throw new Error(rows[0].error.message);
+        console.log(`data inserted successfully :: languages at ${last_inserted_id}`);
     });
 }
 
@@ -93,82 +77,128 @@ const insert_into_technology_details = async (last_inserted_id, forms_data) => {
     forms_data.map(async (ele) => {
         let sql = `INSERT INTO technology_details (employee_id,technology_name,technology_level) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}");`;
         // console.log(sql)
-        try {
-            await db.query(sql);
-            console.log(`data inserted successfully :: technology_details at ${last_inserted_id}`);
-        } catch (error) {
-            console.log(error);
-            return error;
-        }
-
+        const result = await db.query(sql);
+        if (result[0].error) throw new Error(rows[0].error.message);
+        console.log(`data inserted successfully :: technology_details at ${last_inserted_id}`);
     });
 
 }
 const insert_into_reference_contacts = async (last_inserted_id, forms_data) => {
     forms_data.map(async (ele) => {
         if (!ele.includes('')) {
-        let sql = `INSERT INTO reference_contacts (employee_id,name,contact,relation) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[2]}");`;
-        // console.log(sql)
-        try {
-            await db.query(sql);
+            let sql = `INSERT INTO reference_contacts (employee_id,name,contact,relation) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[2]}");`;
+            // console.log(sql)
+            const result = await db.query(sql);
+            if (result[0].error) throw new Error(rows[0].error.message);
             console.log(`data inserted successfully :: reference_contacts at ${last_inserted_id}`);
-        } catch (error) {
-            console.log(error);
-            return error;
         }
-    }
     });
 }
 const insert_into_preferances = async (last_inserted_id, forms_data) => {
     const { preference_location, notice_period, expected_ctc, current_ctc, department } = { ...forms_data };
     let sql = `INSERT INTO preferances (employee_id,preference_location,notice_period,expected_ctc,current_ctc,department) VALUES (${last_inserted_id},"${preference_location}","${notice_period}","${expected_ctc}","${current_ctc}","${department}");`;
     // console.log(sql)
-    try {
-        await db.query(sql);
-        console.log(`data inserted successfully :: preferances at ${last_inserted_id}`);
-    } catch (error) {
-        console.log(error);
-        return error;
-    }
+    const result = await db.query(sql);
+    if (result[0].error) throw new Error(rows[0].error.message);
+    console.log(`data inserted successfully :: preferances at ${last_inserted_id}`);
 }
 
 const fetch_data = async (sql_query) => {
-    try {
-        const [results, fields] = await db.query(sql_query);
-        return results;
-    } catch (error) {
-        console.log(error);
-        return error;
-    }
+    const results = await db.query(sql_query);
+    if (results[0].error) throw new Error(rows[0].error.message);
+    return results[0];
 };
 
 const update_into_basic_details = async (forms_data, employee_id) => {
     const { first_name, last_name, designation, address_1, address_2, email, phone_number, city, state, gender, zipcode, relationship_status, date_of_birth } = { ...forms_data };
 
     const sql = `update basic_details set first_name='${first_name}',last_name ='${last_name}',designation ='${designation}',address_1 ='${address_1}',address_2 ='${address_2}',email ='${email}',phone_number ='${phone_number}',city ='${city}',state ='${state}' ,gender ='${gender}',zipcode ='${zipcode}',relationship_status ='${relationship_status}',date_of_birth ='${date_of_birth.split("/").reverse().join("-")}' where employee_id ='${employee_id}';`
-    try {
-        let res = await db.query(sql);
-        console.log(`data updated successfully :: basic_details at ${employee_id}`);
-    } catch (error) {
-        return error;
-    }
+    const result = await db.query(sql);
+    if (result[0].error) throw new Error(rows[0].error.message);
+    console.log(`data updated successfully :: basic_details at ${employee_id}`);
 };
 
 const update_into_education_details = async (forms_data, employee_id) => {
+    let sql_1 = `delete from educations where employee_id ='${employee_id}';`;
+    const res1 = await db.query(sql_1);
+    if (res1[0].error) throw new Error(rows[0].error.message);
     forms_data.map(async (ele) => {
-        let sql_1 = `delete from educations where employee_id ='${employee_id}';`;
-        let sql_2 = `INSERT INTO educations (employee_id,edu_type,name_of_board,passing_year,percentage) VALUES ("${employee_id}","${ele[0]}","${ele[1]}","${ele[2]}","${ele[3]}");`;
-        console.log(sql_1, sql_2);
-        try {
-            await db.query(sql_1);
-            await db.query(sql_2);
+        if (!ele) {
+            let sql_2 = `INSERT INTO educations (employee_id,edu_type,name_of_board,passing_year,percentage) VALUES ("${employee_id}","${ele[0]}","${ele[1]}","${ele[2]}","${ele[3]}");`;
+            // console.log(sql_1, sql_2);
+            const res2 = await db.query(sql_2);
+            if (res2[0].error) throw new Error(rows[0].error.message);
             console.log(`data updated successfully :: education_details at ${employee_id}`);
-        } catch (error) {
-            console.log(error);
-            return error;
         }
     });
+}
 
+const update_into_work_experience = async (forms_data, employee_id) => {
+    // console.log(forms_data);
+    const sql_1 = `delete from work_experiences where employee_id = ?`;
+    const res1 = await db.query(sql_1, [employee_id]);
+    if (res1[0].error) throw new Error(rows[0].error.message);
+    forms_data.map(async (ele) => {
+        if (!ele.includes('')) {
+            const sql_2 = `insert into work_experiences (employee_id,company_name,designation,start_date,end_date) values (?,?,?,?,?)`;
+            const res2 = await db.query(sql_2, [employee_id, ele[0], ele[1], ele[2].split("/").reverse().join("-"), ele[3].split("/").reverse().join("-")]);
+            if (res2[0].error) throw new Error(rows[0].error.message);
+            console.log(`data updated successfully :: work experiences at ${employee_id}`);
+        }
+    })
+}
+
+const update_into_languages = async (forms_data, employee_id) => {
+    // console.log("languages", forms_data)
+    const sql_1 = `delete from languages where employee_id = ?`
+    const res1 = await db.query(sql_1, [employee_id]);
+    if (res1[0].error) throw new Error(rows[0].error.message);
+    forms_data.map(async (ele) => {
+        if (!ele.includes('')) {
+            const sql_2 = `insert into languages (employee_id,language_name,is_read,is_write,is_speak) values (?,?,?,?,?)`;
+            const res2 = await db.query(sql_2, [employee_id, ele[0], ele[1], ele[2], ele[3]]);
+            if (res2[0].error) throw new Error(rows[0].error.message);
+            console.log(`data updated successfully ::languages at ${employee_id}`);
+        }
+    });
+}
+
+const update_into_technology_details = async (forms_data, employee_id) => {
+    // console.log("technology details", forms_data);
+    const sql_1 = `delete from technology_details where employee_id = ?`
+    const res1 = await db.query(sql_1, [employee_id]);
+    if (res1[0].error) throw new Error(rows[0].error.message);
+    forms_data.map(async (ele) => {
+        if (!ele.includes('')) {
+            const sql_2 = `insert into technology_details (employee_id,technology_name,technology_level) values (?,?,?)`;
+            const res2 = await db.query(sql_2, [employee_id, ele[0], ele[1]]);
+            if (res2[0].error) throw new Error(rows[0].error.message);
+            console.log(`data updated successfully :: technology_details at ${employee_id}`);
+        }
+    });
+}
+const update_into_reference_contacts = async (forms_data, employee_id) => {
+    // console.log("reference contact", forms_data)
+    const sql_1 = `delete from reference_contacts where employee_id = ?`
+    const res1 = await db.query(sql_1, [employee_id]);
+    if (res1[0].error) throw new Error(rows[0].error.message);
+    forms_data.map(async (ele) => {
+        if (!ele.includes('')) {
+            const sql_2 = `insert into reference_contacts (employee_id,name,contact,relation) values (?,?,?,?)`;
+            const res2 = await db.query(sql_2, [employee_id, ele[0], ele[1], ele[2]]);
+            if (res2[0].error) throw new Error(rows[0].error.message);
+            console.log(`data updated successfully ::  reference_contacts at ${employee_id}`);
+        }
+    })
+}
+
+const update_into_preferances = async (forms_data, employee_id) => {
+    // console.log("preferances", forms_data);
+    const { preference_location, notice_period, expected_ctc, current_ctc, department } = { ...forms_data };
+    const sql = `update preferances set preference_location= ?,notice_period=?,expected_ctc=?,current_ctc= ?,department=? where employee_id = ? `
+    const results = await db.query(sql, [preference_location, notice_period, expected_ctc, current_ctc, department, employee_id])
+    if (results[0].error) throw new Error(rows[0].error.message);
+    console.log(`data updated successfully :: preferances at ${employee_id}`);
 }
 
 const jobApplication = async (req, res) => {
@@ -243,12 +273,7 @@ const postJobApplication = async (req, res) => {
     try {
         let last_id = await insert_into_basic_details(basic_details);
         // console.log(last_id);
-        await insert_into_education_details(last_id, education_2d_arr);
-        await insert_into_work_experiences(last_id, work_experiences_2d_arr);
-        await insert_into_languages(last_id, languages_2d_arr);
-        await insert_into_technology_details(last_id, technology_details_2d_arr);
-        await insert_into_reference_contacts(last_id, reference_contact_details_2d_arr);
-        await insert_into_preferances(last_id, preference);
+        await Promise.all([insert_into_education_details(last_id, education_2d_arr),insert_into_work_experiences(last_id, work_experiences_2d_arr),insert_into_languages(last_id, languages_2d_arr),insert_into_technology_details(last_id, technology_details_2d_arr),insert_into_reference_contacts(last_id, reference_contact_details_2d_arr),insert_into_preferances(last_id, preference)]);
         res.send("data added successfully...");
     } catch (error) {
         res.send(JSON.stringify(error));
@@ -325,14 +350,7 @@ const updateJobApplication = async (req, res) => {
     let reference_contact_details_2d_arr = object_to_transpose_2d_array(reference_contact_details);
 
     try {
-        await update_into_basic_details(basic_details, employee_id);
-        await update_into_education_details(education_2d_arr, employee_id)
-        // await insert_into_education_details(last_id, education_2d_arr);
-        // await insert_into_work_experiences(last_id, work_experiences_2d_arr);
-        // await insert_into_languages(last_id, languages_2d_arr);
-        // await insert_into_technology_details(last_id, technology_details_2d_arr);
-        // await insert_into_reference_contacts(last_id, reference_contact_details_2d_arr);
-        // await insert_into_preferances(last_id, preference);
+        await Promise.all([update_into_basic_details(basic_details, employee_id), update_into_education_details(education_2d_arr, employee_id), update_into_work_experience(work_experiences_2d_arr, employee_id), update_into_languages(languages_2d_arr, employee_id), update_into_technology_details(technology_details_2d_arr, employee_id), update_into_reference_contacts(reference_contact_details_2d_arr, employee_id), update_into_preferances(preference, employee_id)]);
         res.send(JSON.stringify({ msg: "data updated successfully..." }));
     } catch (error) {
         console.log(error);
@@ -354,4 +372,4 @@ const fetchJobApplicationData = async (req, res) => {
     res.send(JSON.stringify(obj));
 }
 
-module.exports = { jobApplication, postJobApplication,jobApplicationUpdationUi,updateJobApplication,fetchJobApplicationData };
+module.exports = { jobApplication, postJobApplication, jobApplicationUpdationUi, updateJobApplication, fetchJobApplicationData };
