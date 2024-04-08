@@ -44,6 +44,7 @@ const object_to_transpose_2d_array = (obj) => {
 
 const insert_into_education_details = async (last_inserted_id, forms_data) => {
     forms_data.map(async (ele) => {
+        if (!ele.includes('')) {
         let sql = `INSERT INTO educations (employee_id,edu_type,name_of_board,passing_year,percentage) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[2]}","${ele[3]}");`;
         // console.log(sql)
         try {
@@ -53,6 +54,7 @@ const insert_into_education_details = async (last_inserted_id, forms_data) => {
             console.log(error);
             return error;
         }
+    }
     });
 };
 
@@ -104,7 +106,8 @@ const insert_into_technology_details = async (last_inserted_id, forms_data) => {
 }
 const insert_into_reference_contacts = async (last_inserted_id, forms_data) => {
     forms_data.map(async (ele) => {
-        let sql = `INSERT INTO reference_contacts (employee_id,name,contact,relation) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[0]}");`;
+        if (!ele.includes('')) {
+        let sql = `INSERT INTO reference_contacts (employee_id,name,contact,relation) VALUES (${last_inserted_id},"${ele[0]}","${ele[1]}","${ele[2]}");`;
         // console.log(sql)
         try {
             await db.query(sql);
@@ -113,6 +116,7 @@ const insert_into_reference_contacts = async (last_inserted_id, forms_data) => {
             console.log(error);
             return error;
         }
+    }
     });
 }
 const insert_into_preferances = async (last_inserted_id, forms_data) => {
