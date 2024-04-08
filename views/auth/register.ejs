@@ -9,84 +9,152 @@
 </head>
 
 <body class="max-w-[1440px] my-10 mx-auto bg-purple-50">
-    <div class="text-purple-500 text-center text-3xl my-5 hidden" id="valid_msg">Enter the valid value regarding to input</div>
+    <div class="text-red-500 text-center text-3xl my-5 hidden" id="valid_msg">Enter the valid value regarding to
+        input</div>
     <div class="text-green-500 text-center text-3xl my-5 hidden" id="success_msg">User Register Success..!</div>
-    <div class="text-red-500 text-center text-3xl my-5 hidden" id="fail_msg">Failed to register user,please try again..!</div>
-    
-    <form method="post" id="register_form">
-       <section class="bg-white user_register border p-10 flex flex-col gap-7 rounded-lg big-shadow  min-h-[710px]  w-1/2 mx-auto">
-        <h2 class="text-2xl font-semibold text-purple-500">User Registration 😀</h2>
-        <div action="" class="flex flex-col gap-3">
-            <div class="flex flex-col gap-2 justify-start">
-                <label class="font-medium" for="first_name">Full Name :</label>
-                <input class="border border-gray-300 outline-none p-2 rounded" type="text"
-                    name="full_name" id="full_name" placeholder="Full Name"/>
-            </div>
-            <div class="flex flex-col gap-2 justify-start">
-                <label class="font-medium" for="user_name">User Name :</label>
-                <input class="border border-gray-300 outline-none p-2 rounded" type="text"
-                    name="user_name" id="user_name" placeholder="User Name"/>
-            </div>
-            <div class="flex flex-col gap-2 justify-start">
-                <label class="font-medium" for="mobile_number">Mobile Number :</label>
-                <input class="border border-gray-300 outline-none p-2 rounded" type="text"
-                    name="mobile_number" id="mobile_number" placeholder="Mobile Number"/>
-            </div>
-            <div class="flex flex-col gap-2 justify-start">
-                <label class="font-medium" for="email">Email :</label>
-                <input class="border border-gray-300 outline-none p-2 rounded" type="text"
-                    name="email" id="email" placeholder="Email"/>
-            </div>
-            <div class="flex items-center justify-start gap-5">
-                <label for="gender">Choose a Gender</label>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male" class="cursor-pointer">Male</label>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female" class="cursor-pointer">Female</label>
-            </div>
-            <div class="flex flex-col gap-2 justify-start">
-                <label class="font-medium" for="password">Password :</label>
-                <input class="border border-gray-300 outline-none p-2 rounded" type="password"
-                    name="password" id="password" placeholder="Password"/>
-            </div>
-            <div class="flex flex-col gap-2 justify-start">
-                <label class="font-medium" for="confirm_password">Confirm Password :</label>
-                <input class="border border-gray-300 outline-none p-2 rounded" type="password"
-                    name="confirm_password" id="confirm_password" placeholder="Confirm Password"/>
-            </div>
-           
-            <div class="w-full flex justify-between my-5">
-                <button class="w-fit border bg-gray-100 text-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer" id="login_btn" type="button">Login</button>
-              <div class="flex items-center gap-5">
-                <button class="min-w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
-                id="show_hide_pass" type="button">
-                <span id="show_pass">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgb(255, 255, 255);">
-                        <path
-                            d="M12 5c-7.633 0-9.927 6.617-9.948 6.684L1.946 12l.105.316C2.073 12.383 4.367 19 12 19s9.927-6.617 9.948-6.684l.106-.316-.105-.316C21.927 11.617 19.633 5 12 5zm0 11c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z">
-                        </path>
-                        <path d="M12 10c-1.084 0-2 .916-2 2s.916 2 2 2 2-.916 2-2-.916-2-2-2z"></path>
-                    </svg>
-                </span>
-                <span id="hide_pass" class="hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgb(255, 255, 255);">
-                        <path
-                            d="M8.073 12.194 4.212 8.333c-1.52 1.657-2.096 3.317-2.106 3.351L2 12l.105.316C2.127 12.383 4.421 19 12.054 19c.929 0 1.775-.102 2.552-.273l-2.746-2.746a3.987 3.987 0 0 1-3.787-3.787zM12.054 5c-1.855 0-3.375.404-4.642.998L3.707 2.293 2.293 3.707l18 18 1.414-1.414-3.298-3.298c2.638-1.953 3.579-4.637 3.593-4.679l.105-.316-.105-.316C21.98 11.617 19.687 5 12.054 5zm1.906 7.546c.187-.677.028-1.439-.492-1.96s-1.283-.679-1.96-.492L10 8.586A3.955 3.955 0 0 1 12.054 8c2.206 0 4 1.794 4 4a3.94 3.94 0 0 1-.587 2.053l-1.507-1.507z">
-                        </path>
-                    </svg>
-                </span></button>
-                <button class="w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer" id="register_btn" type="button">Registration</button>
-              </div>
-                
-                
-            </div>
-        </div>
+    <div class="text-red-500 text-center text-3xl my-5 hidden" id="fail_msg">Failed to register user,please try again..!
+    </div>
 
-       </section>
+    <form method="post" id="register_form">
+        <section
+            class="bg-white user_register border p-10 flex flex-col gap-7 rounded-lg big-shadow  min-h-[710px]  w-1/2 mx-auto">
+            <h2 class="text-2xl font-semibold text-purple-500">User Registration 😀</h2>
+            <div action="" class="flex flex-col gap-3">
+                <div class="flex flex-col gap-2 justify-start">
+                    <label class="font-medium" for="first_name">Full Name :</label>
+                    <div class="flex w-full gap-5 items-center">
+                        <input class="w-full border border-gray-300 outline-none p-2 rounded" type="text"
+                            name="full_name" id="full_name" placeholder="Full Name" />
+
+                        <span class="hidden" id="full_name_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg></span>
+
+                    </div>
+
+                </div>
+                <div class="flex flex-col gap-2 justify-start">
+                    <label class="font-medium" for="user_name">User Name :</label>
+                    <div class="flex w-full gap-5 items-center">
+                        <input class="w-full border border-gray-300 outline-none p-2 rounded" type="text"
+                            name="user_name" id="user_name" placeholder="User Name" />
+                        <span class="hidden" id="user_name_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg></span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2 justify-start">
+                    <label class="font-medium" for="mobile_number">Mobile Number :</label>
+                    <div class="flex w-full gap-5 items-center">
+                        <input class="w-full border border-gray-300 outline-none p-2 rounded" type="text"
+                            name="mobile_number" id="mobile_number" placeholder="Mobile Number" />
+                        <span class="hidden" id="mobile_number_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg></span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2 justify-start">
+                    <label class="font-medium" for="email">Email :</label>
+                    <div class="flex w-full gap-5 items-center">
+                        <input class="w-full border border-gray-300 outline-none p-2 rounded" type="text" name="email"
+                            id="email" placeholder="Email" />
+                        <span class="hidden" id="email_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg></span>
+                    </div>
+                </div>
+                <div class="w-full flex gap-5">
+                    <div class="flex w-full items-center justify-start gap-5">
+                        <label for="gender" class="font-medium">Choose a Gender</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male" class="cursor-pointer">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female" class="cursor-pointer">Female</label>
+                    </div>
+                    <span class="hidden" id="gender_valid">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                            </path>
+                        </svg></span>
+                </div>
+                <div class="flex flex-col gap-2 justify-start">
+                    <label class="font-medium" for="password">Password :</label>
+                    <div class="flex w-full gap-5 items-center">
+                        <input class="w-full border border-gray-300 outline-none p-2 rounded" type="password"
+                            name="password" id="password" placeholder="Password" />
+                        <span class="hidden" id="password_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg></span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2 justify-start">
+                    <label class="font-medium" for="confirm_password">Confirm Password :</label>
+                    <div class="flex w-full gap-5 items-center">
+                        <input class="w-full border border-gray-300 outline-none p-2 rounded" type="password"
+                            name="confirm_password" id="confirm_password" placeholder="Confirm Password" />
+                        <span class="hidden" id="confirm_password_valid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                </path>
+                            </svg></span>
+                    </div>
+                </div>
+
+                <div class="w-full flex justify-between my-5">
+                    <button
+                        class="w-fit border bg-gray-100 text-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
+                        id="login_btn" type="button">Login</button>
+                    <div class="flex items-center gap-5">
+                        <button
+                            class="min-w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
+                            id="show_hide_pass" type="button">
+                            <span id="show_pass">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    style="fill: rgb(255, 255, 255);">
+                                    <path
+                                        d="M12 5c-7.633 0-9.927 6.617-9.948 6.684L1.946 12l.105.316C2.073 12.383 4.367 19 12 19s9.927-6.617 9.948-6.684l.106-.316-.105-.316C21.927 11.617 19.633 5 12 5zm0 11c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z">
+                                    </path>
+                                    <path d="M12 10c-1.084 0-2 .916-2 2s.916 2 2 2 2-.916 2-2-.916-2-2-2z"></path>
+                                </svg>
+                            </span>
+                            <span id="hide_pass" class="hidden">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    style="fill: rgb(255, 255, 255);">
+                                    <path
+                                        d="M8.073 12.194 4.212 8.333c-1.52 1.657-2.096 3.317-2.106 3.351L2 12l.105.316C2.127 12.383 4.421 19 12.054 19c.929 0 1.775-.102 2.552-.273l-2.746-2.746a3.987 3.987 0 0 1-3.787-3.787zM12.054 5c-1.855 0-3.375.404-4.642.998L3.707 2.293 2.293 3.707l18 18 1.414-1.414-3.298-3.298c2.638-1.953 3.579-4.637 3.593-4.679l.105-.316-.105-.316C21.98 11.617 19.687 5 12.054 5zm1.906 7.546c.187-.677.028-1.439-.492-1.96s-1.283-.679-1.96-.492L10 8.586A3.955 3.955 0 0 1 12.054 8c2.206 0 4 1.794 4 4a3.94 3.94 0 0 1-.587 2.053l-1.507-1.507z">
+                                    </path>
+                                </svg>
+                            </span></button>
+                        <button
+                            class="w-fit border text-white bg-purple-600 outline-none p-2 px-10 rounded-lg cursor-pointer"
+                            id="register_btn" type="button">Registration</button>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </section>
     </form>
 
 </body>
 <script src="/js/auth/register.js"></script>
+
 </html>

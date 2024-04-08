@@ -16,24 +16,26 @@ let password_show = false;
 
 const empty_string_validation = (id) => {
     // console.log("id", id);
+    const new_id = node_by_id(id.id.concat("_valid"));
     if (id.value.trim() === "") {
         console.log("trim");
-        id.classList.remove("border", "border-green-500");
-        id.classList.add("border", "border-red-500");
+        new_id.classList.remove("hidden", "fill-green-500");
+        new_id.classList.add("fill-red-500");
         return false;
     } else {
         // console.log("no trim");
-        id.classList.remove("border", "border-red-500");
-        id.classList.add("border", "border-green-500");
+        new_id.classList.remove("hidden", "fill-red-500");
+        new_id.classList.add("fill-green-500");
         return true;
     }
 };
 
 const Password_validation = (id) => {
+    const new_id = node_by_id(id.id.concat("_valid"));
     const password = id.value;
     if (password.length < 8) {
-        id.classList.remove("border", "border-green-500");
-        id.classList.add("border", "border-red-500");
+        new_id.classList.remove("hidden", "fill-green-500");
+        new_id.classList.add("fill-red-500");
         return false;
     };
     let hasUpperCase = false;
@@ -57,13 +59,13 @@ const Password_validation = (id) => {
         }
     }
     if (hasUpperCase && hasLowerCase && hasNumber && hasSpecialCharacter) {
-        id.classList.remove("border", "border-red-500");
-        id.classList.add("border", "border-green-500");
+        new_id.classList.remove("hidden", "fill-red-500");
+        new_id.classList.add("fill-green-500");
         return true;
     }
     else {
-        id.classList.remove("border", "border-green-500");
-        id.classList.add("border", "border-red-500");
+        new_id.classList.remove("hidden", "fill-green-500");
+        new_id.classList.add("fill-red-500");
         return false;
     };
 };
