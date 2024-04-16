@@ -7,7 +7,6 @@ const JobApplication = require("./databases");
 //for 3rd party middleware (take input from ejs/html form)
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const { jobApplication } = require('./controllers');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -20,10 +19,10 @@ app.use(express.static('public'));
 
 app.use(route);
 
-app.listen(port, () => {
+app.listen(port, async () => {
     console.log(`Example app listening on port ${port} http://localhost:${port}`);
     try {
-        JobApplication.createDB();
+        await JobApplication.createDB();
         JobApplication.createBasicDetails();
         JobApplication.createWorkExp();
         JobApplication.creteEducations();
